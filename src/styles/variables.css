@@ -1,0 +1,49 @@
+:root {
+    /* Colors - Purple (Brand) */
+    --purple-primary: #B19CD9;
+    --purple-dark: #7B68AA;
+    
+    /* Colors - Year Signatures */
+    --blue-freshman: #89CFF0;
+    --coral-sophomore: #FF8C94;
+    --green-junior: #9BB89F;
+    --gold-senior: #F4B942;
+    --teal-fifth: #45B7D1;
+    
+    /* Neutrals */
+    --white: #FFFFFF;
+    --off-white: #F8F9FA;
+    --charcoal: #2D3436;
+    --gray-medium: #636E72;
+    --gray-light: #DFE6E9;
+    
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-accent: 'Space Grotesk', sans-serif;
+    
+    /* Font Sizes */
+    --text-hero: 72px;
+    --text-page-title: 56px;
+    --text-section: 36px;
+    --text-subsection: 24px;
+    --text-body: 18px;
+    --text-quote: 28px;
+    --text-small: 14px;
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 48px;
+    --spacing-xl: 96px;
+    
+    /* Layout */
+    --max-width: 1440px;
+    --content-width: 1200px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+  }

@@ -1,0 +1,101 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: var(--spacing-md);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .modal-content {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: var(--spacing-xl);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--gray-medium);
+    transition: var(--transition-fast);
+    padding: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .modal-close:hover {
+    background-color: var(--off-white);
+    color: var(--charcoal);
+  }
+  
+  .modal-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--purple-primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-accent);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .modal-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: var(--charcoal);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .modal-body {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--charcoal);
+  }
+  
+  .modal-body p {
+    margin-bottom: var(--spacing-md);
+  }

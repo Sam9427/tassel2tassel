@@ -1,0 +1,78 @@
+/* Sophomore highlight box (for the "But also..." callout) */
+.sophomore-highlight-box {
+    background-color: rgba(177, 156, 217, 0.1);
+    border: 2px solid var(--purple-primary);
+  }
+  .sophomore-highlight-box h4 {
+    font-family: var(--font-accent);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--purple-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+  /* Study Habits Lists */
+  .study-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0 0 0;
+  }
+  .study-item {
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .study-item.developed::before {
+    content: "\2705";
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+  }
+  .study-item.failed::before {
+    content: "\274C";
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+  }
+  /* Dark section pull quote override */
+  .pull-quote-dark {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left-color: rgba(255, 255, 255, 0.6);
+    margin-top: var(--spacing-xl);
+  }
+  .pull-quote-dark p {
+    color: var(--white);
+  }
+  /* Video Placeholder */
+  .video-placeholder {
+    background-color: rgba(177, 156, 217, 0.08);
+    border: 2px dashed var(--purple-primary);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    text-align: center;
+    margin: var(--spacing-lg) 0;
+  }
+  .video-placeholder p {
+    font-family: var(--font-accent);
+    font-size: 16px;
+    color: var(--purple-primary);
+    font-style: italic;
+    margin: 0;
+  }
+  /* Image Placeholder */
+  .image-placeholder {
+    background-color: var(--off-white);
+    border: 2px dashed var(--gray-light);
+    border-radius: 12px;
+    padding: var(--spacing-xl);
+    text-align: center;
+    margin: var(--spacing-lg) 0;
+  }
+  .image-placeholder p {
+    font-family: var(--font-accent);
+    font-size: 16px;
+    color: var(--gray-medium);
+    font-style: italic;
+    margin: 0;
+  }
