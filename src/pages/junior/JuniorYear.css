@@ -4,75 +4,75 @@
 
 /* Lesson Text Highlight */
 .lesson-text {
-    background-color: var(--off-white);
-    padding: var(--spacing-md);
-    border-radius: 8px;
-    margin-top: var(--spacing-md);
-    border-left: 4px solid var(--green-junior);
-  }
-  
-  /* Academic Wins Block */
-  .academic-wins-block {
-    background: linear-gradient(135deg, rgba(155, 184, 159, 0.1), rgba(155, 184, 159, 0.05));
-    border: 2px solid var(--green-junior);
-    padding: var(--spacing-lg);
-    border-radius: 12px;
-    margin-top: var(--spacing-lg);
-  }
-  
-  /* Tactics Box (Email tactics callout) */
-  .tactics-box {
-    background-color: #F0F8FF;
-    border: 2px solid #4A90E2;
-  }
-  
-  .tactics-box h4 {
-    font-family: var(--font-accent);
-    font-size: 18px;
-    font-weight: 600;
-    color: #2C5F8D;
-    margin-bottom: var(--spacing-sm);
-  }
-  
-  .tactics-list {
-    list-style: none;
-    padding: 0;
-    margin: var(--spacing-md) 0 0 0;
-  }
-  
-  .tactics-list li {
-    padding: var(--spacing-xs) 0;
-    padding-left: var(--spacing-lg);
-    position: relative;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-  
-  .tactics-list li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #4A90E2;
-    font-weight: 700;
-  }
-  
-  /* YouTube Embed Styling */
-  .youtube-embed {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 12px;
-    margin: var(--spacing-lg) 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .youtube-embed iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-  }
+  background-color: var(--off-white);
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  margin-top: var(--spacing-md);
+  border-left: 4px solid var(--green-junior);
+}
+
+/* Academic Wins Block */
+.academic-wins-block {
+  background: linear-gradient(135deg, rgba(155, 184, 159, 0.1), rgba(155, 184, 159, 0.05));
+  border: 2px solid var(--green-junior);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  margin-top: var(--spacing-lg);
+}
+
+/* Tactics Box (Email tactics callout) */
+.tactics-box {
+  background-color: #F0F8FF;
+  border: 2px solid #4A90E2;
+}
+
+.tactics-box h4 {
+  font-family: var(--font-accent);
+  font-size: 18px;
+  font-weight: 600;
+  color: #2C5F8D;
+  margin-bottom: var(--spacing-sm);
+}
+
+.tactics-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0 0 0;
+}
+
+.tactics-list li {
+  padding: var(--spacing-xs) 0;
+  padding-left: var(--spacing-lg);
+  position: relative;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.tactics-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #4A90E2;
+  font-weight: 700;
+}
+
+/* YouTube Embed Styling */
+.youtube-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: var(--spacing-lg) 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.youtube-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
