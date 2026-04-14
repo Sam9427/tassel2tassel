@@ -10,6 +10,8 @@ import Footer from './components/navigation/Footer.jsx';
 // Pages
 import Home from './pages/Home';
 import FreshmanYear from './pages/freshman/FreshmanYear';
+import SophomoreYear from './pages/sophomore/SophomoreYear';
+import JuniorYear from './pages/junior/JuniorYear';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/freshman" element={<FreshmanYear />} />
+          <Route path="/sophomore" element={<SophomoreYear />} />
+          <Route path="/junior" element={<JuniorYear />} />
         </Routes>
         <Footer />
       </div>
