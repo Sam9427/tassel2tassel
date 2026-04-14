@@ -1,0 +1,21 @@
+/* ============================================
+   OUTTA HERE YEAR - CSS
+   Matches existing year page CSS patterns
+   ============================================ */
+
+:root {
+  --teal-outta-here: #2A9D8F;
+}
+
+/* ---- OUTTA HERE SPECIFIC CALLOUT ---- */
+.outta-here-highlight-box {
+  border-left: 4px solid var(--teal-outta-here);
+  background: rgba(42, 157, 143, 0.08);
+  margin-top: 1.5rem;
+}
+
+/* ---- SECOND FINAL MESSAGE (To Anyone Taking a 5th Year) ---- */
+.outta-here-final {
+  margin-top: 1.5rem;
+  border-left-color: var(--teal-outta-here);
+}
