@@ -17,7 +17,7 @@ const Footer = () => {
 
           <div className="footer-social">
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/Sam9427" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
@@ -26,7 +26,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com/in/yourusername" 
+              href="https://linkedin.com/in/samantha-matthews-b873a2206" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
@@ -35,7 +35,7 @@ const Footer = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="mailto:your.email@nyu.edu" 
+              href="mailto:samanthamatthews09@gmail.com" 
               className="social-link"
               aria-label="Email"
             >
