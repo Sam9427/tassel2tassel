@@ -12,8 +12,8 @@ const FreshmanYear = () => {
     {
       icon: '📚',
       title: 'The Hardest Part',
-      shortText: `Keeping up with the pacing of professors and how they present information, and understanding that 9 times out of ten you're not going to understand all of the material upon first listen. Realistically, you will take away 45-60 percent, higher percentages if you've been exposed to the subject matter before or had a really strong understanding of the previous lecture.`,
-      fullText: `Keeping up with the pacing of professors and how they present information, and understanding that 9 times out of ten you're not going to understand all of the material upon first listen. Realistically, you will take away 45-60 percent, higher percentages if you've been exposed to the subject matter before or had a really strong understanding of the previous lecture. This is completely normal and expected—you're not falling behind, you're experiencing what everyone experiences.`
+      shortText: `Keeping up with the pacing of professors and how they present information, and understanding that 9 times out of ten you're not going to understand all of the material upon first listen. Realistically, you will take away 45-60 percent.`,
+      fullText: `Keeping up with the pacing of professors and how they present information, and understanding that 9 times out of ten you're not going to understand all of the material upon first listen. Realistically, you will take away 45-60 percent, higher percentages if you've been exposed to the subject matter before or had a really strong understanding of the previous lecture. This is completely normal and expected. You're not falling behind, you're experiencing what everyone experiences.`
     },
     {
       icon: '📝',
@@ -94,11 +94,11 @@ const FreshmanYear = () => {
           {/* THE REALITY CHECK */}
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
-            
+
             <div className="three-col-grid">
               {realityCheckCards.map((card, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="info-card clickable-card"
                   onClick={() => openModal(card)}
                 >
@@ -114,10 +114,10 @@ const FreshmanYear = () => {
           {/* THE BIG FRIEND GROUP */}
           <section id="friend-group" className="content-section bg-off-white">
             <h2 className="section-heading">THE BIG FRIEND GROUP - WHAT ACTUALLY HAPPENS</h2>
-            
-            <p>Certain canon events will occur in every freshman's first year, such as handing in an exam and genuinely having NO IDEA how you scored, walking into the wrong classroom, and getting kicked out of a study room you didn't reserve.</p>
-            
-            <p>However, the large friend group is no different—it's another canon event. You may meet a couple of people from your orientation group or at the freshmen mixers. You'll proceed to meet new friends who will bring their new friends to meet you. Slowly but surely, you'll have a group chat that is always active, alerts friends when they're in the dining hall so you can eat together, and then one day, when you least expect it, you'll begin to drift, and drama will occur that rips the group into cliques.</p>
+
+            <p>Certain canon events will occur in every freshman's first year: handing in an exam and genuinely having NO IDEA how you scored, walking into the wrong classroom, getting kicked out of a study room you didn't reserve. Realizing the professor will not know you by name until you meet with them during office hours.</p>
+
+            <p>The large friend group is no different. It's another canon event. You may meet a couple of people from your orientation group or at the freshmen mixers. You'll proceed to meet new friends who will bring their new friends to meet you. Slowly but surely, you'll have a group chat that is always active, alerts friends when they're in the dining hall so you can eat together, and then one day, when you least expect it, you'll begin to drift, and drama will occur that rips the group into cliques.</p>
 
             <div className="what-you-need">
               <h4>What You Need to Know:</h4>
@@ -140,7 +140,7 @@ const FreshmanYear = () => {
           {/* SOCIAL WINS AND REGRETS */}
           <section id="social" className="content-section bg-white">
             <h2 className="section-heading">SOCIAL WINS AND REGRETS</h2>
-            
+
             <div className="two-col-grid">
               <div className="content-block">
                 <h3 className="block-title">What I Regret</h3>
@@ -161,7 +161,7 @@ const FreshmanYear = () => {
             <div className="survival-card">
               <h3 className="card-title">When You Feel Completely Lost in Class</h3>
               <p>I simply didn't understand the verbiage of what my professor was presenting, so I raised my hand and repeated the concept to the best of my ability and asked him to clarify. Don't sit in silence. Don't pretend you understand. Raise your hand immediately and ask for clarification. Most of the time, other students are just as confused and will be grateful you spoke up.</p>
-              
+
               <div className="pull-quote">
                 <p>"You pay the professor, NOT the other way around."</p>
               </div>
@@ -187,9 +187,9 @@ const FreshmanYear = () => {
           {/* MONEY MANAGEMENT */}
           <section id="money" className="content-section bg-blue-tint">
             <h2 className="section-heading">MONEY MANAGEMENT - MISTAKES AND LESSONS</h2>
-            
+
             <p>If you are eligible for work study, get an on-campus job during your sophomore year. The majority of the time, they are very low-stress, and employers will work alongside your school schedule. The only reason why I emphasize searching for a job in Sophomore year is that I would advise all students to allow their first year to be dedicated to acclimating to a new environment and a completely new schedule.</p>
-            
+
             <p>As far as money, build your credit with a credit card, and do not spend money you DO NOT HAVE. My general rule of thumb: if you can't buy it three times, you cannot afford it.</p>
 
             <div className="pull-quote">
@@ -209,10 +209,10 @@ const FreshmanYear = () => {
           {/* THE WINS */}
           <section id="wins" className="content-section bg-white">
             <h2 className="section-heading">THE WINS - WHAT WORKED</h2>
-            
+
             <div className="wins-content">
               <p><strong>My Biggest Win:</strong> Just getting through it. Surviving freshman year is the win. If you made it to the end, you did what you needed to do.</p>
-              
+
               <ul className="wins-list">
                 <li>I found my people through affinity clubs</li>
                 <li>I learned to speak up when I was confused in class</li>
@@ -225,19 +225,19 @@ const FreshmanYear = () => {
           {/* LOOKING BACK */}
           <section id="looking-back" className="content-section bg-gradient">
             <h2 className="section-heading light-text">LOOKING BACK - WHAT I WISH I'D KNOWN</h2>
-            
+
             <ul className="reflection-list">
               <li>45-60% retention of the lecture upon first listen is completely normal</li>
-              <li>The big friend group will fracture—it's not personal, it's a canon event</li>
+              <li>The big friend group will fracture. It's not personal, it's a canon event</li>
               <li>Start assignments the day you get them, not 2-3 days before they're due</li>
-              <li>Your advisor isn't always right—verify everything with your DPR</li>
+              <li>Your advisor isn't always right. Verify everything with your DPR</li>
               <li>Homesickness is normal. Call home. Cry if you need to. You're allowed to miss the people who love you.</li>
-              <li>Join affinity clubs—they are a great way to feel community</li>
+              <li>Join affinity clubs. They are a great way to feel community</li>
             </ul>
 
             <div className="final-message">
               <h3 className="message-title">To Freshman Me:</h3>
-              <p className="message-text">"You're going to feel lost. You're going to cry. You're going to question if you belong here. But you DO belong. Getting through this year is the win. The confusion you feel right now is not failure—it's adjustment. Trust the process, even when it doesn't make sense yet."</p>
+              <p className="message-text">"You're going to feel lost. You're going to cry. You're going to question if you belong here. But you DO belong. Getting through this year is the win. The confusion you feel right now is not failure. It's adjustment. Trust the process, even when it doesn't make sense yet."</p>
             </div>
           </section>
 
@@ -257,7 +257,7 @@ const FreshmanYear = () => {
       </div>
 
       {/* Reality Check Modal */}
-      <RealityCheckModal 
+      <RealityCheckModal
         isOpen={isModalOpen}
         onClose={closeModal}
         card={selectedCard}

@@ -13,13 +13,13 @@ const SophomoreYear = () => {
       icon: '👥',
       title: 'How My Social Circle Changed',
       shortText: "In my sophomore year, I lessened my friend group by half. I realized the power of quality over quantity and focused on throwing myself into my courses.",
-      fullText: "In my sophomore year, I lessened my friend group by half. I realized the power of quality over quantity and focused on throwing myself into my courses. Because I struggled during my first year, I was determined to pick myself up and prioritize progress over perfection when it came to my academics. I expanded my academic network through other clubs I joined on campus, but even those were primarily professional. This wasn't about cutting people off to be mean—it was about protecting my energy and investing in the people who actually showed up for me. Quality over quantity… Always."
+      fullText: "In my sophomore year, I lessened my friend group by half. I realized the power of quality over quantity and focused on throwing myself into my courses. Because I struggled during my first year, I was determined to pick myself up and prioritize progress over perfection when it came to my academics. I expanded my academic network through other clubs I joined on campus, but even those were primarily professional. This wasn't about cutting people off to be mean. It was about protecting my energy and investing in the people who actually showed up for me. Quality over quantity. Always."
     },
     {
       icon: '📱',
       title: 'How I Handled FOMO',
       shortText: "I handled FOMO so much better because I understood my priorities. What is more important, this club event or studying for this quiz?",
-      fullText: "I handled FOMO so much better because I understood my priorities. What is more important, this club event or studying for this quiz? I was still able to prioritize my friends during my free time. Hanging out with them always felt like a safe haven so I never felt like my social life was strained. The difference between freshman and sophomore year FOMO was simple: I learned to ask myself what actually mattered in that moment. There's always another party. There's not always another chance to pass that exam."
+      fullText: "I handled FOMO so much better because I understood my priorities. What is more important, this club event or studying for this quiz? I was still able to prioritize my friends during my free time. Hanging out with them always felt like a safe haven so I never felt like my social life was strained. There's always another party. There's not always another chance to pass that exam."
     },
     {
       icon: '💔',
@@ -93,7 +93,7 @@ const SophomoreYear = () => {
           {/* THE REALITY CHECK */}
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
-            
+
             <div className="three-col-grid">
               {realityCheckCards.map((card, index) => (
                 <div
@@ -110,10 +110,10 @@ const SophomoreYear = () => {
             </div>
 
             <div className="pull-quote">
-              <p>"Quality over quantity... Always."</p>
+              <p>"Quality over quantity. Always."</p>
             </div>
 
-            {/* YouTube Video - The truth about NYU Tandon */}
+            {/* YouTube Video */}
             <div className="youtube-embed">
               <iframe
                 width="100%"
@@ -130,17 +130,16 @@ const SophomoreYear = () => {
           {/* ACADEMIC REALITY */}
           <section id="academic-reality" className="content-section bg-off-white">
             <h2 className="section-heading">ACADEMIC REALITY - CLASSES GETTING HARDER</h2>
-            
+
             <div className="survival-card">
-              <p>Each class has its own level of difficulty and will always propose a different type of struggle, so maybe if it's not difficulty with the content, it will be difficulty with the amount of homework that is given.</p>
-              <p>You learn quickly that "hard" looks different depending on the class. Sometimes it's the material. Sometimes it's the workload. Sometimes it's the professor. Adjust accordingly.</p>
+              <p>Each class has its own level of difficulty and will always propose a different type of struggle, so maybe if it's not difficulty with the content, it will be difficulty with the amount of homework that is given. You learn quickly that "hard" looks different depending on the class. Sometimes it's the material. Sometimes it's the workload. Sometimes it's the professor. Adjust accordingly.</p>
             </div>
           </section>
 
           {/* THE MAJOR QUESTION */}
           <section id="major-question" className="content-section bg-purple-tint">
             <h2 className="section-heading">THE MAJOR QUESTION I BURIED</h2>
-            
+
             <div className="survival-card">
               <p>I considered changing my major to IDM from CS, but I buried the thought because I didn't want to disappoint my parents, and in a way, I thought that if I switched my major from CS, it suggested that I was a quitter and that I wasn't as smart as I thought I was.</p>
               <p>This was the beginning of a multi-year internal battle. I ignored what my heart was telling me because I was more afraid of what other people would think than I was committed to my own happiness. That fear cost me time, energy, and peace.</p>
@@ -158,7 +157,7 @@ const SophomoreYear = () => {
           {/* STUDY HABITS */}
           <section id="study-habits" className="content-section bg-white">
             <h2 className="section-heading">STUDY HABITS - WHAT I DEVELOPED (AND DIDN'T)</h2>
-            
+
             <div className="two-col-grid">
               <div className="content-block">
                 <h3 className="block-title">What I Developed</h3>
@@ -171,7 +170,7 @@ const SophomoreYear = () => {
               <div className="content-block">
                 <h3 className="block-title">What I Failed to Develop</h3>
                 <ul className="study-list">
-                  <li className="study-item failed">Peer studying - If I'm going to lock in, it's best I do it by myself. I learned that I study better alone, and that's okay. Know your learning style.</li>
+                  <li className="study-item failed">Peer studying - failed to develop this. If I'm going to lock in, it's best I do it by myself. I learned that I study better alone, and that's okay. Know your learning style.</li>
                 </ul>
               </div>
             </div>
@@ -180,9 +179,9 @@ const SophomoreYear = () => {
           {/* IDENTITY SHIFT */}
           <section id="identity-shift" className="content-section bg-blue-tint">
             <h2 className="section-heading">IDENTITY SHIFT - HOW I FELT DIFFERENT</h2>
-            
+
             <p>I felt hopeful. I was still struggling, but I was embracing the struggle. I became hyperfixated on gaining my confidence academically and networking at professional events.</p>
-            
+
             <p>Fall of 2023 was when I decided I wanted to pursue a minor in IDM, because I pushed myself to stop suppressing my curiosity for a field of study that I was always interested in.</p>
           </section>
 
@@ -190,24 +189,24 @@ const SophomoreYear = () => {
           <section id="being-real" className="content-section bg-dark-purple">
             <div className="centered-content">
               <h2 className="section-heading light-text">BEING REAL VS. PRETENDING</h2>
-              
+
               <p className="light-text">I never pretended to have it together. I was very open and honest with myself, my advisors (if they cared to ask), and my friends about where I was in that state. It doesn't make any sense to uphold a facade of "keeping it all together" because in doing so, it can easily force you to avoid reaching out for help during a time when you may need it the most!</p>
-              
-              <p className="light-text">This is so important: Pretending you're fine when you're not doesn't protect you—it isolates you. It keeps you from getting the help you need. Be real about where you are. The right people will meet you there.</p>
+
+              <p className="light-text">Pretending you're fine when you're not doesn't protect you. It isolates you. It keeps you from getting the help you need. Be real about where you are. The right people will meet you there.</p>
             </div>
 
             <div className="pull-quote pull-quote-dark">
-              <p>"Pretending you're fine doesn't protect you—it isolates you."</p>
+              <p>"Pretending you're fine doesn't protect you. It isolates you."</p>
             </div>
           </section>
 
           {/* THE WINS */}
           <section id="wins" className="content-section bg-white">
             <h2 className="section-heading">THE WINS - WHAT MADE ME PROUD</h2>
-            
+
             <div className="wins-content">
-              <p><strong>My Proudest Moment:</strong> Doing research for VIP (Vertically Integrated Project) clubs and getting involved with other NYU faculty and joining educational clubs. This was when I started building my academic network beyond just surviving—I was actually thriving in certain spaces.</p>
-              
+              <p><strong>My Proudest Moment:</strong> Doing research for VIP (Vertically Integrated Project) clubs and getting involved with other NYU faculty and joining educational clubs. This was when I started building my academic network beyond just surviving. I was actually thriving in certain spaces.</p>
+
               <ul className="wins-list">
                 <li>I found professors who saw my potential</li>
                 <li>I found peers who were doing interesting work</li>
@@ -220,22 +219,22 @@ const SophomoreYear = () => {
           {/* LOOKING BACK */}
           <section id="looking-back" className="content-section bg-gradient">
             <h2 className="section-heading light-text">LOOKING BACK - WHAT I LEARNED</h2>
-            
+
             <ul className="reflection-list">
               <li>Quality friendships matter more than quantity</li>
-              <li>Priorities matter more than FOMO—ask yourself what actually matters in the moment</li>
+              <li>Priorities matter more than FOMO. Ask yourself what actually matters in the moment</li>
               <li>Suppressing your interests doesn't make them go away, it just delays the inevitable</li>
-              <li>Being real opens doors for help—pretending closes them</li>
+              <li>Being real opens doors for help. Pretending closes them</li>
               <li>You can struggle in one area and thrive in another</li>
               <li>Loving someone sometimes means letting them go</li>
             </ul>
 
             <div className="final-message">
               <h3 className="message-title">To Sophomore Me:</h3>
-              <p className="message-text">"That curiosity about IDM? Trust it. It's not weakness—it's direction. Cutting the friend group in half was the right move. Those boundaries you're setting? Keep setting them. You're not a quitter for wanting to explore something that excites you. You're listening to yourself, and that's the bravest thing you can do."</p>
+              <p className="message-text">"That curiosity about IDM? Trust it. It's not weakness. It's direction. Cutting the friend group in half was the right move. Those boundaries you're setting? Keep setting them. You're not a quitter for wanting to explore something that excites you. You're listening to yourself, and that's the bravest thing you can do."</p>
             </div>
 
-            {/* YouTube Video - A Day in my life */}
+            {/* YouTube Video */}
             <div className="youtube-embed">
               <iframe
                 width="100%"
