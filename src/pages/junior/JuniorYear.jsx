@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import RealityCheckModal from '../../components/interactive/RealityCheckModal';
 import juniorPhoto from '../../assets/images/IMG_0030.JPG';
 import './JuniorYear.css';
@@ -8,6 +8,7 @@ import './JuniorYear.css';
 const JuniorYear = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const realityCheckCards = [
     {
@@ -32,7 +33,10 @@ const JuniorYear = () => {
 
   const openModal = (card) => { setSelectedCard(card); setIsModalOpen(true); };
   const closeModal = () => { setIsModalOpen(false); setSelectedCard(null); };
-  const scrollToSection = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); };
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    setSidebarOpen(false);
+  };
 
   return (
     <div className="year-page">
@@ -58,12 +62,15 @@ const JuniorYear = () => {
       </section>
 
       <div className="content-wrapper">
+
+        {/* Collapsible Sidebar */}
         <aside className="sidebar-nav">
-          <h3 className="sidebar-title">On This Page</h3>
-          <nav className="sidebar-links">
+          <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            <span className="sidebar-title">On This Page</span>
+            {sidebarOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
+          <nav className={`sidebar-links ${sidebarOpen ? 'sidebar-links--open' : ''}`}>
             <button onClick={() => scrollToSection('reality-check')} className="sidebar-link">The Reality Check</button>
-            <button onClick={() => scrollToSection('imposter-syndrome')} className="sidebar-link">Imposter Syndrome</button>
-            <button onClick={() => scrollToSection('career-pressure')} className="sidebar-link">Career Pressure</button>
             <button onClick={() => scrollToSection('retaking-classes')} className="sidebar-link">Retaking Classes</button>
             <button onClick={() => scrollToSection('rose-tinted')} className="sidebar-link">Rose-Tinted Glasses</button>
             <button onClick={() => scrollToSection('advocacy')} className="sidebar-link">How I Advocated</button>
@@ -74,6 +81,7 @@ const JuniorYear = () => {
 
         <main className="main-content">
 
+          {/* REALITY CHECK - imposter syndrome + career pressure live here only */}
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
             <div className="three-col-grid">
@@ -81,42 +89,29 @@ const JuniorYear = () => {
                 <div key={index} className="info-card clickable-card" onClick={() => openModal(card)}>
                   <div className="card-icon">{card.icon}</div>
                   <h3 className="card-title">{card.title}</h3>
-                  <p>{card.shortText}</p>
+                  <p className="card-short-text">{card.shortText}</p>
                   <button className="read-more-btn">Read More →</button>
                 </div>
               ))}
             </div>
+
             <div className="signature-pull-quote">
               <p>"I was clawing my way through CS, and the finish line felt impossibly far away."</p>
               <span className="spq-source">Junior Year</span>
             </div>
-          </section>
 
-          <section id="imposter-syndrome" className="content-section bg-off-white">
-            <h2 className="section-heading">WHEN IMPOSTER SYNDROME HIT HARDEST</h2>
             <div className="youtube-embed">
               <iframe width="100%" height="400" src="https://www.youtube.com/embed/L7t2DPH-aU8" title="i feel lost, so i spoke about it" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
-            <p>Imposter syndrome hit the hardest in my Freshman year of college, but it came roaring back in junior year. It was the first time where I would be fully present in lectures and not have any understanding of what my professor was saying and I didn't feel confident to participate during the lecture. Meanwhile, most of the kids around me were answering questions with a quickness because they were exposed to the material all throughout their high school career.</p>
-            <p>I felt like I was constantly playing catch-up. Like everyone else got a head start and I was just trying not to drown. This feeling is so isolating, but I want you to know: if you're feeling this way, you're not alone. Most people are just better at hiding it.</p>
-          </section>
 
-          <section id="career-pressure" className="content-section bg-purple-tint">
-            <h2 className="section-heading">CAREER PRESSURE - WHEN IT STARTED GETTING REAL</h2>
-            <div className="survival-card">
-              <p>I so desperately wanted an internship, so this is when I started to panic about not having a lot of real work experience outside of the research I conducted for school clubs. I was consistently a part of NSBE (National Society for Black Engineers), so I was constantly going to resume workshops, panels, networking events, etc.</p>
-              <p>I even got funding for the NSBE national conference, where I waited in various company lines for hours and pitched myself. I got LinkedIn connections and really locked in. Unfortunately, I didn't get an internship from the conference, but I did end up having an internship through another NSBE Connect.</p>
-              <p className="lesson-text"><strong>The Lesson:</strong> Sometimes the hustle doesn't pay off immediately, but it pays off eventually. Every connection matters. Every conversation counts. Don't give up just because one avenue didn't work.</p>
-            </div>
-
-            {/* PHOTO - NSBE 49th National Conference Atlanta */}
             <div className="year-photo-block">
               <img src={juniorPhoto} alt="Samantha and NSBE members at the 49th NSBE National Conference in Atlanta" className="year-photo" />
               <p className="year-photo-caption">49th NSBE National Conference, Atlanta. I pitched myself to every company there.</p>
             </div>
           </section>
 
-          <section id="retaking-classes" className="content-section bg-white">
+          {/* RETAKING CLASSES */}
+          <section id="retaking-classes" className="content-section bg-off-white">
             <h2 className="section-heading">RETAKING CLASSES - THE EMOTIONAL TOLL</h2>
             <p>I tried to tell myself that every time I retook a class was reinforcing everything I already knew, and that it is not reflective of who I am as a student, but rather highlights my persistence in still being able to put my pride aside to redo homework and exams that I found so challenging.</p>
             <p>But let's be real: it hurt. It felt like failure even when I was trying to reframe it as persistence. It felt embarrassing. It felt like proof that I didn't belong. But I kept showing up anyway, and that's what mattered.</p>
@@ -130,6 +125,7 @@ const JuniorYear = () => {
             </div>
           </section>
 
+          {/* ROSE-TINTED GLASSES */}
           <section id="rose-tinted" className="content-section bg-blue-tint">
             <h2 className="section-heading">WHEN MY ROSE-TINTED GLASSES FELL OFF</h2>
             <p>Junior year was when my rose-tinted glasses of NYU fell and I realized that because I'm not getting the support I need from the faculty that is LITERALLY HIRED TO PROVIDE IT, I did all that I could to bully them (in a respectful way of course) to get what I needed.</p>
@@ -139,6 +135,7 @@ const JuniorYear = () => {
             </div>
           </section>
 
+          {/* ADVOCACY */}
           <section id="advocacy" className="content-section bg-white">
             <h2 className="section-heading">WHAT CHANGED IN HOW I ADVOCATED FOR MYSELF</h2>
             <p>I became very vocal and unabashed about needing assistance from my advisors, or asking questions. If I didn't receive a response to an email that I deemed very important I began double emailing and putting professors, advisors, faculty etc on blast so that I wouldn't be ignored. I placed "URGENT" in the subject line to let the professor know that I drastically need their attention.</p>
@@ -161,6 +158,7 @@ const JuniorYear = () => {
             <p>This was the year I learned that you have to be your own advocate because no one else will do it for you.</p>
           </section>
 
+          {/* WHAT KEPT ME GOING */}
           <section id="what-kept-going" className="content-section bg-dark-purple">
             <div className="centered-content">
               <h2 className="section-heading light-text">WHAT KEPT ME GOING</h2>
@@ -168,6 +166,7 @@ const JuniorYear = () => {
             </div>
           </section>
 
+          {/* LOOKING BACK */}
           <section id="looking-back" className="content-section bg-gradient">
             <h2 className="section-heading light-text">LOOKING BACK - WHAT I LEARNED</h2>
             <ul className="reflection-list">

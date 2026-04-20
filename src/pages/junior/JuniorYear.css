@@ -76,3 +76,62 @@
   height: 100%;
   border-radius: 12px;
 }
+/* Fix card text cutoff */
+.card-short-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--charcoal);
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+}
+ 
+.info-card.clickable-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+}
+ 
+.read-more-btn {
+  margin-top: auto;
+}
+ 
+/* ============================================
+   PASTE THIS AT THE BOTTOM OF global.css
+   (replaces the old sidebar-nav styles if any)
+   ============================================ */
+ 
+/* Collapsible sidebar */
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 0 12px 0;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+  margin-bottom: 4px;
+}
+ 
+.sidebar-toggle .sidebar-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple-primary);
+}
+ 
+.sidebar-links {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+ 
+.sidebar-links--open {
+  display: flex;
+  max-height: 500px;
+}
