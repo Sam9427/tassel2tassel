@@ -95,3 +95,133 @@ a:hover {
     padding: 0 var(--spacing-md);
   }
 }
+/* ============================================
+   SIGNATURE PULL QUOTES
+   Add these to the bottom of your global.css
+   ============================================ */
+
+/* Full size - use between major sections */
+.signature-pull-quote {
+  position: relative;
+  background: #12112a;
+  border-radius: 16px;
+  padding: 36px 36px 36px 40px;
+  overflow: hidden;
+  border-left: 4px solid #9b6dff;
+  margin: 32px 0;
+}
+
+.signature-pull-quote::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  height: 220px;
+  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.signature-pull-quote::after {
+  content: '\201C';
+  position: absolute;
+  top: -10px;
+  right: 24px;
+  font-size: 120px;
+  color: rgba(155, 109, 255, 0.12);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.signature-pull-quote p {
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+  color: #f0ecff;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.spq-source {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9b6dff;
+}
+
+/* Compact size - use inside sections to break up paragraphs */
+.signature-pull-quote-sm {
+  position: relative;
+  background: #12112a;
+  border-radius: 12px;
+  padding: 22px 24px 22px 28px;
+  overflow: hidden;
+  border-left: 3px solid #9b6dff;
+  margin: 24px 0;
+}
+
+.signature-pull-quote-sm::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: 140px;
+  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.signature-pull-quote-sm p {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 500;
+  color: #f0ecff;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================
+   YEAR PAGE PHOTOS
+   Add these to the bottom of your global.css
+   ============================================ */
+
+.year-photo-block {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.year-photo {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.year-photo--portrait {
+  max-height: 420px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.year-photo-caption {
+  font-size: 0.82rem;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
