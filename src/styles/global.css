@@ -214,8 +214,11 @@ a:hover {
 
 .year-photo--portrait {
   max-height: 420px;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
+  width: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 .year-photo-caption {
