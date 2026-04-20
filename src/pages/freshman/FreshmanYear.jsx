@@ -30,30 +30,16 @@ const FreshmanYear = () => {
     }
   ];
 
-  const openModal = (card) => {
-    setSelectedCard(card);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedCard(null);
-  };
-
-  const scrollToSection = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  };
+  const openModal = (card) => { setSelectedCard(card); setIsModalOpen(true); };
+  const closeModal = () => { setIsModalOpen(false); setSelectedCard(null); };
+  const scrollToSection = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); };
 
   return (
     <div className="year-page">
-      {/* Back Navigation */}
       <div className="back-nav">
-        <Link to="/" className="back-link">
-          <ArrowLeft size={20} /> Back to All Years
-        </Link>
+        <Link to="/" className="back-link"><ArrowLeft size={20} /> Back to All Years</Link>
       </div>
 
-      {/* THE RUNDOWN - Hero Section */}
       <section className="rundown-hero" style={{ '--year-color': 'var(--blue-freshman)' }}>
         <div className="container">
           <h1 className="year-title">FRESHMAN YEAR</h1>
@@ -71,9 +57,7 @@ const FreshmanYear = () => {
         </div>
       </section>
 
-      {/* Sticky Sidebar + Main Content */}
       <div className="content-wrapper">
-        {/* Sticky Sidebar Nav */}
         <aside className="sidebar-nav">
           <h3 className="sidebar-title">On This Page</h3>
           <nav className="sidebar-links">
@@ -89,20 +73,13 @@ const FreshmanYear = () => {
           </nav>
         </aside>
 
-        {/* Main Content */}
         <main className="main-content">
 
-          {/* THE REALITY CHECK */}
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
-
             <div className="three-col-grid">
               {realityCheckCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="info-card clickable-card"
-                  onClick={() => openModal(card)}
-                >
+                <div key={index} className="info-card clickable-card" onClick={() => openModal(card)}>
                   <div className="card-icon">{card.icon}</div>
                   <h3 className="card-title">{card.title}</h3>
                   <p>{card.shortText}</p>
@@ -112,25 +89,20 @@ const FreshmanYear = () => {
             </div>
           </section>
 
-          {/* THE BIG FRIEND GROUP */}
           <section id="friend-group" className="content-section bg-off-white">
             <h2 className="section-heading">THE BIG FRIEND GROUP - WHAT ACTUALLY HAPPENS</h2>
-
             <p>Certain canon events will occur in every freshman's first year: handing in an exam and genuinely having NO IDEA how you scored, walking into the wrong classroom, getting kicked out of a study room you didn't reserve. Realizing the professor will not know you by name until you meet with them during office hours.</p>
-
             <p>The large friend group is no different. It's another canon event. You may meet a couple of people from your orientation group or at the freshmen mixers. You'll proceed to meet new friends who will bring their new friends to meet you. Slowly but surely, you'll have a group chat that is always active, alerts friends when they're in the dining hall so you can eat together, and then one day, when you least expect it, you'll begin to drift, and drama will occur that rips the group into cliques.</p>
-
             <div className="what-you-need">
               <h4>What You Need to Know:</h4>
               <p>You mustn't get involved with it and branch out and find new friends. Remember that some people are not meant to be in your life forever, but just seasons. Do not tell your deepest darkest secrets, or treat them as you would your best friend, because you just met them. Protect your peace and your privacy until you know who your real people are.</p>
             </div>
-
-            <div className="pull-quote">
+            <div className="signature-pull-quote">
               <p>"Some people are not meant to be in your life forever, but just seasons."</p>
+              <span className="spq-source">Freshman Year</span>
             </div>
           </section>
 
-          {/* HOMESICKNESS */}
           <section id="homesickness" className="content-section bg-purple-tint">
             <div className="centered-content">
               <h2 className="section-heading">HOMESICKNESS AND HOW I COPED</h2>
@@ -138,37 +110,33 @@ const FreshmanYear = () => {
             </div>
           </section>
 
-          {/* SOCIAL WINS AND REGRETS */}
           <section id="social" className="content-section bg-white">
             <h2 className="section-heading">SOCIAL WINS AND REGRETS</h2>
-
             <div className="two-col-grid">
               <div className="content-block">
                 <h3 className="block-title">What I Regret</h3>
                 <p>I regret devoting so much of my free time to an on-campus club and prioritizing that in some moments, as opposed to my classes. Balance is everything, and I learned that the hard way.</p>
               </div>
-
               <div className="content-block">
                 <h3 className="block-title">What I'm Glad I Did</h3>
                 <p>I'm glad that I joined affinity clubs on campus. I made beautiful friendships and strong connections with some faculty members. I felt an overwhelming sense of belonging. These spaces saved me when everything else felt chaotic.</p>
               </div>
             </div>
+            <div className="year-photo-block">
+              <img src={freshmanPhoto} alt="Samantha and NSBE friends at NYU field day" className="year-photo" />
+              <p className="year-photo-caption">Finding my people. NSBE field day at NYU.</p>
+            </div>
           </section>
 
-          {/* ACADEMIC SURVIVAL TACTICS */}
           <section id="academic-survival" className="content-section bg-off-white">
             <h2 className="section-heading">ACADEMIC SURVIVAL TACTICS</h2>
-
             <div className="survival-card">
               <h3 className="card-title">When You Feel Completely Lost in Class</h3>
               <p>I simply didn't understand the verbiage of what my professor was presenting, so I raised my hand and repeated the concept to the best of my ability and asked him to clarify. Don't sit in silence. Don't pretend you understand. Raise your hand immediately and ask for clarification. Most of the time, other students are just as confused and will be grateful you spoke up.</p>
-
-              <div className="pull-quote">
+              <div className="signature-pull-quote-sm">
                 <p>"You pay the professor, NOT the other way around."</p>
               </div>
             </div>
-
-            {/* ALBERT WARNING BOX */}
             <div className="callout-box warning-box">
               <div className="callout-icon">⚠️</div>
               <div className="callout-content">
@@ -177,7 +145,6 @@ const FreshmanYear = () => {
                 <p className="callout-emphasis">Your advisor isn't always right. Verify everything yourself. This is YOUR education.</p>
               </div>
             </div>
-
             <div className="survival-card">
               <h3 className="card-title">TIME MANAGEMENT - WHERE I FAILED</h3>
               <p>I struggled heavily because I underestimated how much time I had to complete my homework. For instance, if I were given a week for a problem set, I would start it 2-3 days before it was due. This prompted me to produce hasty work as opposed to sitting with the material and struggling through the problems, and gaining a stronger understanding of the content presented.</p>
@@ -185,20 +152,16 @@ const FreshmanYear = () => {
             </div>
           </section>
 
-          {/* MONEY MANAGEMENT */}
           <section id="money" className="content-section bg-blue-tint">
             <h2 className="section-heading">MONEY MANAGEMENT - MISTAKES AND LESSONS</h2>
-
             <p>If you are eligible for work study, get an on-campus job during your sophomore year. The majority of the time, they are very low-stress, and employers will work alongside your school schedule. The only reason why I emphasize searching for a job in Sophomore year is that I would advise all students to allow their first year to be dedicated to acclimating to a new environment and a completely new schedule.</p>
-
             <p>As far as money, build your credit with a credit card, and do not spend money you DO NOT HAVE. My general rule of thumb: if you can't buy it three times, you cannot afford it.</p>
-
-            <div className="pull-quote">
+            <div className="signature-pull-quote">
               <p>"If you can't buy it three times, you cannot afford it."</p>
+              <span className="spq-source">Freshman Year</span>
             </div>
           </section>
 
-          {/* THE HARD PART */}
           <section id="hard-part" className="content-section bg-dark-purple">
             <div className="centered-content">
               <h2 className="section-heading light-text">THE HARD PART</h2>
@@ -207,13 +170,10 @@ const FreshmanYear = () => {
             </div>
           </section>
 
-          {/* THE WINS */}
           <section id="wins" className="content-section bg-white">
             <h2 className="section-heading">THE WINS - WHAT WORKED</h2>
-
             <div className="wins-content">
               <p><strong>My Biggest Win:</strong> Just getting through it. Surviving freshman year is the win. If you made it to the end, you did what you needed to do.</p>
-
               <ul className="wins-list">
                 <li>I found my people through affinity clubs</li>
                 <li>I learned to speak up when I was confused in class</li>
@@ -223,10 +183,8 @@ const FreshmanYear = () => {
             </div>
           </section>
 
-          {/* LOOKING BACK */}
           <section id="looking-back" className="content-section bg-gradient">
             <h2 className="section-heading light-text">LOOKING BACK - WHAT I WISH I'D KNOWN</h2>
-
             <ul className="reflection-list">
               <li>45-60% retention of the lecture upon first listen is completely normal</li>
               <li>The big friend group will fracture. It's not personal, it's a canon event</li>
@@ -235,7 +193,6 @@ const FreshmanYear = () => {
               <li>Homesickness is normal. Call home. Cry if you need to. You're allowed to miss the people who love you.</li>
               <li>Join affinity clubs. They are a great way to feel community</li>
             </ul>
-
             <div className="final-message">
               <h3 className="message-title">To Freshman Me:</h3>
               <p className="message-text">"You're going to feel lost. You're going to cry. You're going to question if you belong here. But you DO belong. Getting through this year is the win. The confusion you feel right now is not failure. It's adjustment. Trust the process, even when it doesn't make sense yet."</p>
@@ -245,24 +202,12 @@ const FreshmanYear = () => {
         </main>
       </div>
 
-      {/* Next/Previous Navigation */}
       <div className="page-navigation">
-        <Link to="/" className="nav-button prev-button">
-          <ArrowLeft size={20} />
-          <span>Back to Home</span>
-        </Link>
-        <Link to="/sophomore" className="nav-button next-button">
-          <span>Next: Sophomore Year</span>
-          <ArrowRight size={20} />
-        </Link>
+        <Link to="/" className="nav-button prev-button"><ArrowLeft size={20} /><span>Back to Home</span></Link>
+        <Link to="/sophomore" className="nav-button next-button"><span>Next: Sophomore Year</span><ArrowRight size={20} /></Link>
       </div>
 
-      {/* Reality Check Modal */}
-      <RealityCheckModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        card={selectedCard}
-      />
+      <RealityCheckModal isOpen={isModalOpen} onClose={closeModal} card={selectedCard} />
     </div>
   );
 };

@@ -5,7 +5,6 @@ import RealityCheckModal from '../../components/interactive/RealityCheckModal';
 import sophomorePhoto from '../../assets/images/IMG_2837.jpg';
 import './SophomoreYear.css';
 
-
 const SophomoreYear = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,30 +30,16 @@ const SophomoreYear = () => {
     }
   ];
 
-  const openModal = (card) => {
-    setSelectedCard(card);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedCard(null);
-  };
-
-  const scrollToSection = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  };
+  const openModal = (card) => { setSelectedCard(card); setIsModalOpen(true); };
+  const closeModal = () => { setIsModalOpen(false); setSelectedCard(null); };
+  const scrollToSection = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); };
 
   return (
     <div className="year-page">
-      {/* Back Navigation */}
       <div className="back-nav">
-        <Link to="/" className="back-link">
-          <ArrowLeft size={20} /> Back to All Years
-        </Link>
+        <Link to="/" className="back-link"><ArrowLeft size={20} /> Back to All Years</Link>
       </div>
 
-      {/* THE RUNDOWN - Hero Section */}
       <section className="rundown-hero" style={{ '--year-color': 'var(--coral-sophomore)' }}>
         <div className="container">
           <h1 className="year-title">SOPHOMORE YEAR</h1>
@@ -72,9 +57,7 @@ const SophomoreYear = () => {
         </div>
       </section>
 
-      {/* Sticky Sidebar + Main Content */}
       <div className="content-wrapper">
-        {/* Sticky Sidebar Nav */}
         <aside className="sidebar-nav">
           <h3 className="sidebar-title">On This Page</h3>
           <nav className="sidebar-links">
@@ -89,20 +72,13 @@ const SophomoreYear = () => {
           </nav>
         </aside>
 
-        {/* Main Content */}
         <main className="main-content">
 
-          {/* THE REALITY CHECK */}
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
-
             <div className="three-col-grid">
               {realityCheckCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="info-card clickable-card"
-                  onClick={() => openModal(card)}
-                >
+                <div key={index} className="info-card clickable-card" onClick={() => openModal(card)}>
                   <div className="card-icon">{card.icon}</div>
                   <h3 className="card-title">{card.title}</h3>
                   <p>{card.shortText}</p>
@@ -110,43 +86,28 @@ const SophomoreYear = () => {
                 </div>
               ))}
             </div>
-
-            <div className="pull-quote">
+            <div className="signature-pull-quote">
               <p>"Quality over quantity. Always."</p>
+              <span className="spq-source">Sophomore Year</span>
             </div>
-
-            {/* YouTube Video */}
             <div className="youtube-embed">
-              <iframe
-                width="100%"
-                height="400"
-                src="https://www.youtube.com/embed/TFny6PBmCHE"
-                title="The truth about NYU Tandon...What I wish I knew"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <iframe width="100%" height="400" src="https://www.youtube.com/embed/TFny6PBmCHE" title="The truth about NYU Tandon...What I wish I knew" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
           </section>
 
-          {/* ACADEMIC REALITY */}
           <section id="academic-reality" className="content-section bg-off-white">
             <h2 className="section-heading">ACADEMIC REALITY - CLASSES GETTING HARDER</h2>
-
             <div className="survival-card">
               <p>Each class has its own level of difficulty and will always propose a different type of struggle, so maybe if it's not difficulty with the content, it will be difficulty with the amount of homework that is given. You learn quickly that "hard" looks different depending on the class. Sometimes it's the material. Sometimes it's the workload. Sometimes it's the professor. Adjust accordingly.</p>
             </div>
           </section>
 
-          {/* THE MAJOR QUESTION */}
           <section id="major-question" className="content-section bg-purple-tint">
             <h2 className="section-heading">THE MAJOR QUESTION I BURIED</h2>
-
             <div className="survival-card">
               <p>I considered changing my major to IDM from CS, but I buried the thought because I didn't want to disappoint my parents, and in a way, I thought that if I switched my major from CS, it suggested that I was a quitter and that I wasn't as smart as I thought I was.</p>
               <p>This was the beginning of a multi-year internal battle. I ignored what my heart was telling me because I was more afraid of what other people would think than I was committed to my own happiness. That fear cost me time, energy, and peace.</p>
             </div>
-
             <div className="callout-box sophomore-highlight-box">
               <div className="callout-icon">💡</div>
               <div className="callout-content">
@@ -156,10 +117,8 @@ const SophomoreYear = () => {
             </div>
           </section>
 
-          {/* STUDY HABITS */}
           <section id="study-habits" className="content-section bg-white">
             <h2 className="section-heading">STUDY HABITS - WHAT I DEVELOPED (AND DIDN'T)</h2>
-
             <div className="two-col-grid">
               <div className="content-block">
                 <h3 className="block-title">What I Developed</h3>
@@ -168,7 +127,6 @@ const SophomoreYear = () => {
                   <li className="study-item developed">Attending exam review sessions - always attend these!</li>
                 </ul>
               </div>
-
               <div className="content-block">
                 <h3 className="block-title">What I Failed to Develop</h3>
                 <ul className="study-list">
@@ -178,37 +136,34 @@ const SophomoreYear = () => {
             </div>
           </section>
 
-          {/* IDENTITY SHIFT */}
           <section id="identity-shift" className="content-section bg-blue-tint">
             <h2 className="section-heading">IDENTITY SHIFT - HOW I FELT DIFFERENT</h2>
-
             <p>I felt hopeful. I was still struggling, but I was embracing the struggle. I became hyperfixated on gaining my confidence academically and networking at professional events.</p>
-
             <p>Fall of 2023 was when I decided I wanted to pursue a minor in IDM, because I pushed myself to stop suppressing my curiosity for a field of study that I was always interested in.</p>
+
+            {/* PHOTO - Mercer Street Gala */}
+            <div className="year-photo-block">
+              <img src={sophomorePhoto} alt="Samantha at the NSBE Mercer Street Gala" className="year-photo year-photo--portrait" />
+              <p className="year-photo-caption">NSBE Mercer Street Gala. Community that kept me going.</p>
+            </div>
           </section>
 
-          {/* BEING REAL VS. PRETENDING */}
           <section id="being-real" className="content-section bg-dark-purple">
             <div className="centered-content">
               <h2 className="section-heading light-text">BEING REAL VS. PRETENDING</h2>
-
               <p className="light-text">I never pretended to have it together. I was very open and honest with myself, my advisors (if they cared to ask), and my friends about where I was in that state. It doesn't make any sense to uphold a facade of "keeping it all together" because in doing so, it can easily force you to avoid reaching out for help during a time when you may need it the most!</p>
-
               <p className="light-text">Pretending you're fine when you're not doesn't protect you. It isolates you. It keeps you from getting the help you need. Be real about where you are. The right people will meet you there.</p>
             </div>
-
-            <div className="pull-quote pull-quote-dark">
+            <div className="signature-pull-quote">
               <p>"Pretending you're fine doesn't protect you. It isolates you."</p>
+              <span className="spq-source">Sophomore Year</span>
             </div>
           </section>
 
-          {/* THE WINS */}
           <section id="wins" className="content-section bg-white">
             <h2 className="section-heading">THE WINS - WHAT MADE ME PROUD</h2>
-
             <div className="wins-content">
               <p><strong>My Proudest Moment:</strong> Doing research for VIP (Vertically Integrated Project) clubs and getting involved with other NYU faculty and joining educational clubs. This was when I started building my academic network beyond just surviving. I was actually thriving in certain spaces.</p>
-
               <ul className="wins-list">
                 <li>I found professors who saw my potential</li>
                 <li>I found peers who were doing interesting work</li>
@@ -218,10 +173,8 @@ const SophomoreYear = () => {
             </div>
           </section>
 
-          {/* LOOKING BACK */}
           <section id="looking-back" className="content-section bg-gradient">
             <h2 className="section-heading light-text">LOOKING BACK - WHAT I LEARNED</h2>
-
             <ul className="reflection-list">
               <li>Quality friendships matter more than quantity</li>
               <li>Priorities matter more than FOMO. Ask yourself what actually matters in the moment</li>
@@ -230,47 +183,24 @@ const SophomoreYear = () => {
               <li>You can struggle in one area and thrive in another</li>
               <li>Loving someone sometimes means letting them go</li>
             </ul>
-
             <div className="final-message">
               <h3 className="message-title">To Sophomore Me:</h3>
               <p className="message-text">"That curiosity about IDM? Trust it. It's not weakness. It's direction. Cutting the friend group in half was the right move. Those boundaries you're setting? Keep setting them. You're not a quitter for wanting to explore something that excites you. You're listening to yourself, and that's the bravest thing you can do."</p>
             </div>
-
-            {/* YouTube Video */}
             <div className="youtube-embed">
-              <iframe
-                width="100%"
-                height="400"
-                src="https://www.youtube.com/embed/rOwLCeSU6aQ"
-                title="A Day in my life as a nyu tandon student"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <iframe width="100%" height="400" src="https://www.youtube.com/embed/rOwLCeSU6aQ" title="A Day in my life as a nyu tandon student" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
           </section>
 
         </main>
       </div>
 
-      {/* Next/Previous Navigation */}
       <div className="page-navigation">
-        <Link to="/freshman" className="nav-button prev-button">
-          <ArrowLeft size={20} />
-          <span>Previous: Freshman Year</span>
-        </Link>
-        <Link to="/junior" className="nav-button next-button">
-          <span>Next: Junior Year</span>
-          <ArrowRight size={20} />
-        </Link>
+        <Link to="/freshman" className="nav-button prev-button"><ArrowLeft size={20} /><span>Previous: Freshman Year</span></Link>
+        <Link to="/junior" className="nav-button next-button"><span>Next: Junior Year</span><ArrowRight size={20} /></Link>
       </div>
 
-      {/* Reality Check Modal */}
-      <RealityCheckModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        card={selectedCard}
-      />
+      <RealityCheckModal isOpen={isModalOpen} onClose={closeModal} card={selectedCard} />
     </div>
   );
 };

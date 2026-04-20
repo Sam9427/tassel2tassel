@@ -30,30 +30,16 @@ const JuniorYear = () => {
     }
   ];
 
-  const openModal = (card) => {
-    setSelectedCard(card);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedCard(null);
-  };
-
-  const scrollToSection = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  };
+  const openModal = (card) => { setSelectedCard(card); setIsModalOpen(true); };
+  const closeModal = () => { setIsModalOpen(false); setSelectedCard(null); };
+  const scrollToSection = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); };
 
   return (
     <div className="year-page">
-      {/* Back Navigation */}
       <div className="back-nav">
-        <Link to="/" className="back-link">
-          <ArrowLeft size={20} /> Back to All Years
-        </Link>
+        <Link to="/" className="back-link"><ArrowLeft size={20} /> Back to All Years</Link>
       </div>
 
-      {/* THE RUNDOWN - Hero Section */}
       <section className="rundown-hero" style={{ '--year-color': 'var(--green-junior)' }}>
         <div className="container">
           <h1 className="year-title">JUNIOR YEAR</h1>
@@ -71,9 +57,7 @@ const JuniorYear = () => {
         </div>
       </section>
 
-      {/* Sticky Sidebar + Main Content */}
       <div className="content-wrapper">
-        {/* Sticky Sidebar Nav */}
         <aside className="sidebar-nav">
           <h3 className="sidebar-title">On This Page</h3>
           <nav className="sidebar-links">
@@ -88,20 +72,13 @@ const JuniorYear = () => {
           </nav>
         </aside>
 
-        {/* Main Content */}
         <main className="main-content">
 
-          {/* THE REALITY CHECK */}
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
-
             <div className="three-col-grid">
               {realityCheckCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="info-card clickable-card"
-                  onClick={() => openModal(card)}
-                >
+                <div key={index} className="info-card clickable-card" onClick={() => openModal(card)}>
                   <div className="card-icon">{card.icon}</div>
                   <h3 className="card-title">{card.title}</h3>
                   <p>{card.shortText}</p>
@@ -109,85 +86,62 @@ const JuniorYear = () => {
                 </div>
               ))}
             </div>
-
-            <div className="pull-quote">
+            <div className="signature-pull-quote">
               <p>"I was clawing my way through CS, and the finish line felt impossibly far away."</p>
+              <span className="spq-source">Junior Year</span>
             </div>
           </section>
 
-          {/* WHEN IMPOSTER SYNDROME HIT HARDEST */}
           <section id="imposter-syndrome" className="content-section bg-off-white">
             <h2 className="section-heading">WHEN IMPOSTER SYNDROME HIT HARDEST</h2>
-
-            {/* YouTube Video */}
             <div className="youtube-embed">
-              <iframe
-                width="100%"
-                height="400"
-                src="https://www.youtube.com/embed/L7t2DPH-aU8"
-                title="i feel lost, so i spoke about it"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <iframe width="100%" height="400" src="https://www.youtube.com/embed/L7t2DPH-aU8" title="i feel lost, so i spoke about it" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
-
             <p>Imposter syndrome hit the hardest in my Freshman year of college, but it came roaring back in junior year. It was the first time where I would be fully present in lectures and not have any understanding of what my professor was saying and I didn't feel confident to participate during the lecture. Meanwhile, most of the kids around me were answering questions with a quickness because they were exposed to the material all throughout their high school career.</p>
-
             <p>I felt like I was constantly playing catch-up. Like everyone else got a head start and I was just trying not to drown. This feeling is so isolating, but I want you to know: if you're feeling this way, you're not alone. Most people are just better at hiding it.</p>
           </section>
 
-          {/* CAREER PRESSURE */}
           <section id="career-pressure" className="content-section bg-purple-tint">
             <h2 className="section-heading">CAREER PRESSURE - WHEN IT STARTED GETTING REAL</h2>
-
             <div className="survival-card">
               <p>I so desperately wanted an internship, so this is when I started to panic about not having a lot of real work experience outside of the research I conducted for school clubs. I was consistently a part of NSBE (National Society for Black Engineers), so I was constantly going to resume workshops, panels, networking events, etc.</p>
-
               <p>I even got funding for the NSBE national conference, where I waited in various company lines for hours and pitched myself. I got LinkedIn connections and really locked in. Unfortunately, I didn't get an internship from the conference, but I did end up having an internship through another NSBE Connect.</p>
-
               <p className="lesson-text"><strong>The Lesson:</strong> Sometimes the hustle doesn't pay off immediately, but it pays off eventually. Every connection matters. Every conversation counts. Don't give up just because one avenue didn't work.</p>
+            </div>
+
+            {/* PHOTO - NSBE 49th National Conference Atlanta */}
+            <div className="year-photo-block">
+              <img src={juniorPhoto} alt="Samantha and NSBE members at the 49th NSBE National Conference in Atlanta" className="year-photo" />
+              <p className="year-photo-caption">49th NSBE National Conference, Atlanta. I pitched myself to every company there.</p>
             </div>
           </section>
 
-          {/* RETAKING CLASSES */}
           <section id="retaking-classes" className="content-section bg-white">
             <h2 className="section-heading">RETAKING CLASSES - THE EMOTIONAL TOLL</h2>
-
             <p>I tried to tell myself that every time I retook a class was reinforcing everything I already knew, and that it is not reflective of who I am as a student, but rather highlights my persistence in still being able to put my pride aside to redo homework and exams that I found so challenging.</p>
-
             <p>But let's be real: it hurt. It felt like failure even when I was trying to reframe it as persistence. It felt embarrassing. It felt like proof that I didn't belong. But I kept showing up anyway, and that's what mattered.</p>
-
-            <div className="pull-quote">
+            <div className="signature-pull-quote">
               <p>"Retaking classes doesn't define you. Fighting through them does."</p>
+              <span className="spq-source">Junior Year</span>
             </div>
-
             <div className="content-block academic-wins-block">
               <h3 className="block-title">Academic Wins to Balance the Struggles</h3>
               <p>My fall semester was way better than my spring but I didn't have to retake any courses during Fall 2023. This felt like a huge win after so many semesters of struggling. It reminded me that progress isn't linear. Some semesters are better than others, and that's okay.</p>
             </div>
           </section>
 
-          {/* WHEN MY ROSE-TINTED GLASSES FELL OFF */}
           <section id="rose-tinted" className="content-section bg-blue-tint">
             <h2 className="section-heading">WHEN MY ROSE-TINTED GLASSES FELL OFF</h2>
-
             <p>Junior year was when my rose-tinted glasses of NYU fell and I realized that because I'm not getting the support I need from the faculty that is LITERALLY HIRED TO PROVIDE IT, I did all that I could to bully them (in a respectful way of course) to get what I needed.</p>
-
             <p>I fought for what I needed and did not apologize to ANYONE for going after it! I became more confident in myself and my abilities as a NYU Violet.</p>
-
-            <div className="pull-quote">
+            <div className="signature-pull-quote-sm">
               <p>"I began to bully them (in a respectful way) to get what I needed."</p>
             </div>
           </section>
 
-          {/* HOW I ADVOCATED FOR MYSELF */}
           <section id="advocacy" className="content-section bg-white">
             <h2 className="section-heading">WHAT CHANGED IN HOW I ADVOCATED FOR MYSELF</h2>
-
             <p>I became very vocal and unabashed about needing assistance from my advisors, or asking questions. If I didn't receive a response to an email that I deemed very important I began double emailing and putting professors, advisors, faculty etc on blast so that I wouldn't be ignored. I placed "URGENT" in the subject line to let the professor know that I drastically need their attention.</p>
-
-            {/* EMAIL TACTICS CALLOUT */}
             <div className="callout-box tactics-box">
               <div className="callout-icon">📧</div>
               <div className="callout-content">
@@ -203,13 +157,10 @@ const JuniorYear = () => {
                 </ul>
               </div>
             </div>
-
             <p>I began vocalizing and advocating for myself more aggressively during Junior year but I really began to stand up to my advisors and the NYU system during my senior year. But junior year was when I realized I had to fight. That the system wasn't going to help me unless I forced it to. That being nice and quiet and patient wasn't working.</p>
-
             <p>This was the year I learned that you have to be your own advocate because no one else will do it for you.</p>
           </section>
 
-          {/* WHAT KEPT ME GOING */}
           <section id="what-kept-going" className="content-section bg-dark-purple">
             <div className="centered-content">
               <h2 className="section-heading light-text">WHAT KEPT ME GOING</h2>
@@ -217,10 +168,8 @@ const JuniorYear = () => {
             </div>
           </section>
 
-          {/* LOOKING BACK */}
           <section id="looking-back" className="content-section bg-gradient">
             <h2 className="section-heading light-text">LOOKING BACK - WHAT I LEARNED</h2>
-
             <ul className="reflection-list">
               <li>Imposter syndrome is a liar. Everyone feels behind sometimes</li>
               <li>The hustle doesn't always pay off immediately, but it pays off eventually</li>
@@ -229,7 +178,6 @@ const JuniorYear = () => {
               <li>You have to be your own advocate. No one else will fight for you</li>
               <li>Sometimes one class, one field, one community can be the thing that saves you</li>
             </ul>
-
             <div className="final-message">
               <h3 className="message-title">To Junior Me:</h3>
               <p className="message-text">"That imposter syndrome? Everyone feels it. You're not actually behind. You're exactly where you need to be. Retaking classes doesn't define you; fighting through them does. The burnout is real, but you're stronger than you think. And those IDM courses you love? Pay attention to that feeling. It's telling you something important."</p>
@@ -239,24 +187,12 @@ const JuniorYear = () => {
         </main>
       </div>
 
-      {/* Next/Previous Navigation */}
       <div className="page-navigation">
-        <Link to="/sophomore" className="nav-button prev-button">
-          <ArrowLeft size={20} />
-          <span>Previous: Sophomore Year</span>
-        </Link>
-        <Link to="/senior" className="nav-button next-button">
-          <span>Next: Senior Year</span>
-          <ArrowRight size={20} />
-        </Link>
+        <Link to="/sophomore" className="nav-button prev-button"><ArrowLeft size={20} /><span>Previous: Sophomore Year</span></Link>
+        <Link to="/senior" className="nav-button next-button"><span>Next: Senior Year</span><ArrowRight size={20} /></Link>
       </div>
 
-      {/* Reality Check Modal */}
-      <RealityCheckModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        card={selectedCard}
-      />
+      <RealityCheckModal isOpen={isModalOpen} onClose={closeModal} card={selectedCard} />
     </div>
   );
 };
