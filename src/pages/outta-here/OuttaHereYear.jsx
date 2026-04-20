@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import RealityCheckModal from '../../components/interactive/RealityCheckModal';
 import outtaHerePhoto from '../../assets/images/IMG_2197.jpg';
 import './OuttaHereYear.css';
@@ -8,6 +8,7 @@ import './OuttaHereYear.css';
 const OuttaHereYear = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const realityCheckCards = [
     {
@@ -32,7 +33,10 @@ const OuttaHereYear = () => {
 
   const openModal = (card) => { setSelectedCard(card); setIsModalOpen(true); };
   const closeModal = () => { setIsModalOpen(false); setSelectedCard(null); };
-  const scrollToSection = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); };
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    setSidebarOpen(false);
+  };
 
   return (
     <div className="year-page">
@@ -59,8 +63,11 @@ const OuttaHereYear = () => {
 
       <div className="content-wrapper">
         <aside className="sidebar-nav">
-          <h3 className="sidebar-title">On This Page</h3>
-          <nav className="sidebar-links">
+          <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            <span className="sidebar-title">On This Page</span>
+            {sidebarOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
+          <nav className={`sidebar-links ${sidebarOpen ? 'sidebar-links--open' : ''}`}>
             <button onClick={() => scrollToSection('reality-check')} className="sidebar-link">The Reality Check</button>
             <button onClick={() => scrollToSection('why-5th-year')} className="sidebar-link">Why a 5th Year</button>
             <button onClick={() => scrollToSection('the-gift')} className="sidebar-link">The Gift</button>
@@ -70,7 +77,6 @@ const OuttaHereYear = () => {
         </aside>
 
         <main className="main-content">
-
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
             <div className="three-col-grid">
@@ -106,7 +112,6 @@ const OuttaHereYear = () => {
           <section id="the-gift" className="content-section bg-blue-tint">
             <h2 className="section-heading">THE GIFT - WHAT THIS YEAR GAVE ME</h2>
             <p>Stress but clarity in my sense of belonging and knowing that I earned my stripes to be where I am. This year proved to me how resilient I am and how I can really do anything when I put my mind to it.</p>
-
             <div className="two-col-grid">
               <div className="content-block">
                 <h3 className="block-title">How My Perspective Changed</h3>
@@ -117,13 +122,10 @@ const OuttaHereYear = () => {
                 <p>Time is what you make of it. Your time for greatness is coming. It may not be when you want it, but it doesn't mean you won't get it.</p>
               </div>
             </div>
-
-            {/* PHOTO - NSBE e-board senator photoshoot */}
             <div className="year-photo-block">
               <img src={outtaHerePhoto} alt="Samantha at the NSBE e-board photoshoot as Senator" className="year-photo year-photo--portrait" />
               <p className="year-photo-caption">NSBE e-board senator. Leading while finishing strong.</p>
             </div>
-
             <div className="signature-pull-quote">
               <p>"Your time for greatness is coming. It may not be when you want it, but it doesn't mean you won't get it."</p>
               <span className="spq-source">Outta Here Year</span>
@@ -164,7 +166,6 @@ const OuttaHereYear = () => {
               <span className="spq-source">Outta Here Year</span>
             </div>
           </section>
-
         </main>
       </div>
 

@@ -87,7 +87,7 @@
   /* Content Wrapper with Sidebar */
   .content-wrapper {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: var(--spacing-xl);
     max-width: var(--max-width);
     margin: 0 auto;
@@ -111,15 +111,29 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--purple-primary);
-    margin-bottom: var(--spacing-md);
   }
   
-  .sidebar-links {
+  .sidebar-toggle {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.15);
+    margin-bottom: 8px;
+  }
+  .sidebar-links {
+    display: none;
     flex-direction: column;
     gap: var(--spacing-xs);
   }
   
+  .sidebar-links--open {
+    display: flex;
+  }
   .sidebar-link {
     background: none;
     border: none;

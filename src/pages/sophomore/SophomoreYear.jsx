@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import RealityCheckModal from '../../components/interactive/RealityCheckModal';
 import sophomorePhoto from '../../assets/images/IMG_2837.jpg';
 import './SophomoreYear.css';
@@ -8,6 +8,7 @@ import './SophomoreYear.css';
 const SophomoreYear = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const realityCheckCards = [
     {
@@ -32,7 +33,10 @@ const SophomoreYear = () => {
 
   const openModal = (card) => { setSelectedCard(card); setIsModalOpen(true); };
   const closeModal = () => { setIsModalOpen(false); setSelectedCard(null); };
-  const scrollToSection = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); };
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    setSidebarOpen(false);
+  };
 
   return (
     <div className="year-page">
@@ -59,8 +63,11 @@ const SophomoreYear = () => {
 
       <div className="content-wrapper">
         <aside className="sidebar-nav">
-          <h3 className="sidebar-title">On This Page</h3>
-          <nav className="sidebar-links">
+          <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            <span className="sidebar-title">On This Page</span>
+            {sidebarOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
+          <nav className={`sidebar-links ${sidebarOpen ? 'sidebar-links--open' : ''}`}>
             <button onClick={() => scrollToSection('reality-check')} className="sidebar-link">The Reality Check</button>
             <button onClick={() => scrollToSection('academic-reality')} className="sidebar-link">Academic Reality</button>
             <button onClick={() => scrollToSection('major-question')} className="sidebar-link">The Major Question</button>
@@ -73,7 +80,6 @@ const SophomoreYear = () => {
         </aside>
 
         <main className="main-content">
-
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
             <div className="three-col-grid">
@@ -91,7 +97,7 @@ const SophomoreYear = () => {
               <span className="spq-source">Sophomore Year</span>
             </div>
             <div className="youtube-embed">
-              <iframe width="100%" height="400" src="https://www.youtube.com/embed/TFny6PBmCHE" title="The truth about NYU Tandon...What I wish I knew" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              <iframe width="100%" height="400" src="https://www.youtube.com/embed/TFny6PBmCHE" title="The truth about NYU Tandon" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
           </section>
 
@@ -140,8 +146,6 @@ const SophomoreYear = () => {
             <h2 className="section-heading">IDENTITY SHIFT - HOW I FELT DIFFERENT</h2>
             <p>I felt hopeful. I was still struggling, but I was embracing the struggle. I became hyperfixated on gaining my confidence academically and networking at professional events.</p>
             <p>Fall of 2023 was when I decided I wanted to pursue a minor in IDM, because I pushed myself to stop suppressing my curiosity for a field of study that I was always interested in.</p>
-
-            {/* PHOTO - Mercer Street Gala */}
             <div className="year-photo-block">
               <img src={sophomorePhoto} alt="Samantha at the NSBE Mercer Street Gala" className="year-photo year-photo--portrait" />
               <p className="year-photo-caption">NSBE Mercer Street Gala. Community that kept me going.</p>
@@ -191,7 +195,6 @@ const SophomoreYear = () => {
               <iframe width="100%" height="400" src="https://www.youtube.com/embed/rOwLCeSU6aQ" title="A Day in my life as a nyu tandon student" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
           </section>
-
         </main>
       </div>
 

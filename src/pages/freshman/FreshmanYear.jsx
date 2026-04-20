@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import RealityCheckModal from '../../components/interactive/RealityCheckModal';
 import freshmanPhoto from '../../assets/images/IMG_3530.jpg';
 import './FreshmanYear.css';
@@ -8,12 +8,13 @@ import './FreshmanYear.css';
 const FreshmanYear = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const realityCheckCards = [
     {
       icon: '📚',
       title: 'The Hardest Part',
-      shortText: `Keeping up with the pacing of professors and how they present information, and understanding that 9 times out of ten you're not going to understand all of the material upon first listen. Realistically, you will take away 45-60 percent.`,
+      shortText: `Keeping up with the pacing of professors and how they present information, and understanding that 9 times out of ten you're not going to understand all of the material upon first listen.`,
       fullText: `Keeping up with the pacing of professors and how they present information, and understanding that 9 times out of ten you're not going to understand all of the material upon first listen. Realistically, you will take away 45-60 percent, higher percentages if you've been exposed to the subject matter before or had a really strong understanding of the previous lecture. This is completely normal and expected. You're not falling behind, you're experiencing what everyone experiences.`
     },
     {
@@ -25,14 +26,17 @@ const FreshmanYear = () => {
     {
       icon: '👨‍🏫',
       title: `Professors Won't Know Your Name`,
-      shortText: 'The professor will not know you by name until you meet with them during office hours.',
+      shortText: 'The professor will not know you by name until you meet with them during office hours. You have to make that effort.',
       fullText: `The professor will not know you by name until you meet with them during office hours. You have to make that effort. They're not going to come to you.`
     }
   ];
 
   const openModal = (card) => { setSelectedCard(card); setIsModalOpen(true); };
   const closeModal = () => { setIsModalOpen(false); setSelectedCard(null); };
-  const scrollToSection = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); };
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    setSidebarOpen(false);
+  };
 
   return (
     <div className="year-page">
@@ -59,8 +63,11 @@ const FreshmanYear = () => {
 
       <div className="content-wrapper">
         <aside className="sidebar-nav">
-          <h3 className="sidebar-title">On This Page</h3>
-          <nav className="sidebar-links">
+          <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            <span className="sidebar-title">On This Page</span>
+            {sidebarOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          </button>
+          <nav className={`sidebar-links ${sidebarOpen ? 'sidebar-links--open' : ''}`}>
             <button onClick={() => scrollToSection('reality-check')} className="sidebar-link">The Reality Check</button>
             <button onClick={() => scrollToSection('friend-group')} className="sidebar-link">The Big Friend Group</button>
             <button onClick={() => scrollToSection('homesickness')} className="sidebar-link">Homesickness</button>
@@ -74,7 +81,6 @@ const FreshmanYear = () => {
         </aside>
 
         <main className="main-content">
-
           <section id="reality-check" className="content-section bg-white">
             <h2 className="section-heading">THE REALITY CHECK</h2>
             <div className="three-col-grid">
@@ -198,7 +204,6 @@ const FreshmanYear = () => {
               <p className="message-text">"You're going to feel lost. You're going to cry. You're going to question if you belong here. But you DO belong. Getting through this year is the win. The confusion you feel right now is not failure. It's adjustment. Trust the process, even when it doesn't make sense yet."</p>
             </div>
           </section>
-
         </main>
       </div>
 
