@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import RealityCheckModal from '../../components/interactive/RealityCheckModal';
+import sophomorePhoto from '../../assets/images/IMG_2837.jpg';
 import './SophomoreYear.css';
+
 
 const SophomoreYear = () => {
   const [selectedCard, setSelectedCard] = useState(null);

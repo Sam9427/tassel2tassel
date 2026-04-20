@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import RealityCheckModal from '../../components/interactive/RealityCheckModal';
+import juniorPhoto from '../../assets/images/IMG_0030.JPG';
 import './JuniorYear.css';
 
 const JuniorYear = () => {

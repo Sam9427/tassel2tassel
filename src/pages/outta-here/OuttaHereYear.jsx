@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import RealityCheckModal from '../../components/interactive/RealityCheckModal';
+import outtaHerePhoto from '../../assets/images/IMG_2197.jpg';
 import './OuttaHereYear.css';
 
 const OuttaHereYear = () => {
