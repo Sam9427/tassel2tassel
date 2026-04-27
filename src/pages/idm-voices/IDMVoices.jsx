@@ -189,9 +189,9 @@ const IDMVoices = () => (
   <div className="idm-voices-page">
     <div className="voices-hero">
       <p className="voices-eyebrow">IDM Voices</p>
-      <h1 className="voices-headline">Real students. Real answers.</h1>
+      <h1 className="voices-headline">Real students. Realer answers.</h1>
       <p className="voices-sub">
-        I asked four IDM students the questions nobody thinks to ask. Here's what they had to say.
+        I asked four IDM students different questions that highlight different parts of their college career. Here's what they had to say.
       </p>
     </div>
     <div className="voices-grid">
