@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2 } from 'lucide-react';
 import './IDMVoices.css';
 
@@ -23,7 +23,7 @@ const students = [
     graduationSemester: 'Spring 2027',
     photo: lamarPhoto,
     audio: lamarAudio,
-    question: 'What is one thing you wish someone had told you before starting college?',
+    question: "What's something you wish professors understood about students in your program?",
   },
   {
     id: 2,
@@ -34,18 +34,18 @@ const students = [
     graduationSemester: 'Spring 2026',
     photo: devynnePhoto,
     audio: devynneAudio,
-    question: 'What is one thing you wish someone had told you before starting college?',
+    question: "What excites you about life after graduation—and what scares you?",
   },
   {
     id: 3,
     firstName: 'Yamila',
-    lastName: null,
-    pronouns: null,
+    lastName: 'Madrid',
+    pronouns: 'she/her',
     year: null,
     graduationSemester: 'Spring 2026',
     photo: yamilaPhoto,
     audio: yamilaAudio,
-    question: 'What is one thing you wish someone had told you before starting college?',
+    question: "What's something you thought you'd have figured out by now, but don't?",
   },
   {
     id: 4,
@@ -56,7 +56,7 @@ const students = [
     graduationSemester: null,
     photo: null,
     audio: riverAudio,
-    question: 'What is one thing you wish someone had told you before starting college?',
+    question: "What's a project you're proud of and what did it really take to finish it?",
   },
 ];
 
@@ -67,29 +67,54 @@ const VoiceCard = ({ student }) => {
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleLoaded = () => setDuration(audio.duration);
+    const handleTimeUpdate = () => {
+      setCurrentTime(audio.currentTime);
+      const pct = (audio.currentTime / audio.duration) * 100;
+      setProgress(isNaN(pct) ? 0 : pct);
+    };
+    const handleEnded = () => { setPlaying(false); setProgress(0); setCurrentTime(0); };
+
+    audio.addEventListener('loadedmetadata', handleLoaded);
+    audio.addEventListener('durationchange', handleLoaded);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+    audio.addEventListener('ended', handleEnded);
+
+    // If already loaded
+    if (audio.readyState >= 1 && !isNaN(audio.duration)) {
+      setDuration(audio.duration);
+    }
+
+    return () => {
+      audio.removeEventListener('loadedmetadata', handleLoaded);
+      audio.removeEventListener('durationchange', handleLoaded);
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
+      audio.removeEventListener('ended', handleEnded);
+    };
+  }, []);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
-    if (playing) { audioRef.current.pause(); } else { audioRef.current.play(); }
+    if (playing) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
     setPlaying(!playing);
   };
 
-  const onTimeUpdate = () => {
-    if (!audioRef.current) return;
-    const pct = (audioRef.current.currentTime / audioRef.current.duration) * 100;
-    setProgress(isNaN(pct) ? 0 : pct);
-  };
-
-  const onLoaded = () => { if (audioRef.current) setDuration(audioRef.current.duration); };
-  const onEnded = () => { setPlaying(false); setProgress(0); };
-
   const seek = (e) => {
-    if (!audioRef.current) return;
+    if (!audioRef.current || !duration) return;
     const bar = e.currentTarget.getBoundingClientRect();
     const pct = (e.clientX - bar.left) / bar.width;
-    audioRef.current.currentTime = pct * audioRef.current.duration;
-    setProgress(pct * 100);
+    audioRef.current.currentTime = pct * duration;
   };
 
   const fmt = (s) => {
@@ -132,19 +157,20 @@ const VoiceCard = ({ student }) => {
           <audio
             ref={audioRef}
             src={student.audio}
-            onTimeUpdate={onTimeUpdate}
-            onLoadedMetadata={onLoaded}
-            onEnded={onEnded}
             preload="metadata"
           />
-          <button className={`play-btn ${playing ? 'play-btn--pause' : ''}`} onClick={togglePlay} aria-label={playing ? 'Pause' : 'Play'}>
+          <button
+            className={`play-btn ${playing ? 'play-btn--pause' : ''}`}
+            onClick={togglePlay}
+            aria-label={playing ? 'Pause' : 'Play'}
+          >
             {playing ? <Pause size={18} /> : <Play size={18} />}
           </button>
           <div className="player-track" onClick={seek} role="progressbar">
             <div className="player-fill" style={{ width: `${progress}%` }} />
           </div>
           <span className="player-time">
-            {fmt(audioRef.current?.currentTime)} / {fmt(duration)}
+            {fmt(currentTime)} / {fmt(duration)}
           </span>
           <Volume2 size={14} className="player-vol-icon" />
         </div>
