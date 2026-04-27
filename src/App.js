@@ -15,7 +15,7 @@ import JuniorYear from './pages/junior/JuniorYear';
 import SeniorYear from './pages/senior/SeniorYear';
 import OuttaHereYear from './pages/outta-here/OuttaHereYear';
 import Resources from './pages/resources/Resources';
-
+import IDMVoices from './pages/idm-voices/IDMVoices';
 function App() {
   return (
     <Router>
@@ -29,6 +29,7 @@ function App() {
           <Route path="/senior" element={<SeniorYear />} />
           <Route path="/outta-here" element={<OuttaHereYear />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/idm-voices" element={<IDMVoices />} />
         </Routes>
         <Footer />
       </div>
