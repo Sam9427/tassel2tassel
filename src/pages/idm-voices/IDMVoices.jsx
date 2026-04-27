@@ -2,52 +2,63 @@ import React, { useState, useRef } from 'react';
 import { Play, Pause, Volume2 } from 'lucide-react';
 import './IDMVoices.css';
 
-// ── STUDENT DATA ──────────────────────────────────────────────────────────────
-// Fill in name, pronouns, year, photo, and audio for each student.
-// Leave photo/audio as null if you don't have them yet.
+// ── Photos (River has no photo yet)
+import devynnePhoto from '../../assets/images/idm-voices/devynne.jpeg';
+import lamarPhoto from '../../assets/images/idm-voices/lamar.jpeg';
+import yamilaPhoto from '../../assets/images/idm-voices/yamila.jpeg';
+
+// ── Audio
+import devynneAudio from '../../assets/audio/idm-voices/devynne.m4a';
+import lamarAudio from '../../assets/audio/idm-voices/lamar.m4a';
+import riverAudio from '../../assets/audio/idm-voices/river.m4a';
+import yamilaAudio from '../../assets/audio/idm-voices/yamila.m4a';
+
 const students = [
   {
     id: 1,
-    firstName: 'Samantha',
-    lastName: 'Matthews',   // update when received
+    firstName: 'Lamar',
+    lastName: 'Jambi',
     pronouns: 'she/her',
-    year: 'Senior',
-    photo: null, // e.g. require('../../assets/images/voices/samantha.jpg')
-    audio: null, // e.g. require('../../assets/audio/voices/samantha.m4a')
+    year: 'Junior',
+    graduationSemester: 'Spring 2027',
+    photo: lamarPhoto,
+    audio: lamarAudio,
     question: 'What is one thing you wish someone had told you before starting college?',
   },
   {
     id: 2,
-    firstName: 'Student',
-    lastName: '2',          // update when received
-    pronouns: null,         // update when received
-    year: null,             // update when received
-    photo: null,
-    audio: null,
+    firstName: 'Devynne',
+    lastName: null,
+    pronouns: null,
+    year: null,
+    graduationSemester: 'Spring 2026',
+    photo: devynnePhoto,
+    audio: devynneAudio,
     question: 'What is one thing you wish someone had told you before starting college?',
   },
   {
     id: 3,
-    firstName: 'Student',
-    lastName: '3',
+    firstName: 'Yamila',
+    lastName: null,
     pronouns: null,
     year: null,
-    photo: null,
-    audio: null,
+    graduationSemester: 'Spring 2026',
+    photo: yamilaPhoto,
+    audio: yamilaAudio,
     question: 'What is one thing you wish someone had told you before starting college?',
   },
   {
     id: 4,
-    firstName: 'Student',
-    lastName: '4',
+    firstName: 'River',
+    lastName: null,
     pronouns: null,
     year: null,
+    graduationSemester: null,
     photo: null,
-    audio: null,
+    audio: riverAudio,
     question: 'What is one thing you wish someone had told you before starting college?',
   },
 ];
-// ─────────────────────────────────────────────────────────────────────────────
 
 const initials = (first, last) =>
   `${first?.[0] ?? ''}${last?.[0] ?? ''}`.toUpperCase();
@@ -60,11 +71,7 @@ const VoiceCard = ({ student }) => {
 
   const togglePlay = () => {
     if (!audioRef.current) return;
-    if (playing) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
+    if (playing) { audioRef.current.pause(); } else { audioRef.current.play(); }
     setPlaying(!playing);
   };
 
@@ -74,14 +81,8 @@ const VoiceCard = ({ student }) => {
     setProgress(isNaN(pct) ? 0 : pct);
   };
 
-  const onLoaded = () => {
-    if (audioRef.current) setDuration(audioRef.current.duration);
-  };
-
-  const onEnded = () => {
-    setPlaying(false);
-    setProgress(0);
-  };
+  const onLoaded = () => { if (audioRef.current) setDuration(audioRef.current.duration); };
+  const onEnded = () => { setPlaying(false); setProgress(0); };
 
   const seek = (e) => {
     if (!audioRef.current) return;
@@ -98,18 +99,11 @@ const VoiceCard = ({ student }) => {
     return `${m}:${sec}`;
   };
 
-  const hasAudio = Boolean(student.audio);
-
   return (
     <div className="voice-card">
-      {/* Photo / Avatar */}
       <div className="voice-photo-wrapper">
         {student.photo ? (
-          <img
-            src={student.photo}
-            alt={`${student.firstName} ${student.lastName}`}
-            className="voice-photo"
-          />
+          <img src={student.photo} alt={student.firstName} className="voice-photo" />
         ) : (
           <div className="voice-avatar">
             {initials(student.firstName, student.lastName)}
@@ -117,43 +111,33 @@ const VoiceCard = ({ student }) => {
         )}
       </div>
 
-      {/* Identity */}
       <div className="voice-identity">
         <h3 className="voice-name">
-          {student.firstName} {student.lastName}
+          {student.firstName}{student.lastName ? ` ${student.lastName}` : ''}
         </h3>
         <div className="voice-meta">
           {student.year && <span className="voice-badge year-badge">{student.year}</span>}
-          {student.pronouns && (
-            <span className="voice-badge pronouns-badge">{student.pronouns}</span>
-          )}
+          {student.graduationSemester && <span className="voice-badge grad-badge">{student.graduationSemester}</span>}
+          {student.pronouns && <span className="voice-badge pronouns-badge">{student.pronouns}</span>}
         </div>
       </div>
 
-      {/* Question */}
       <div className="voice-question-block">
         <span className="voice-question-label">Question asked</span>
         <p className="voice-question-text">"{student.question}"</p>
       </div>
 
-      {/* Audio Player */}
-      {hasAudio ? (
+      {student.audio ? (
         <div className="voice-player">
-          {student.audio && (
-            <audio
-              ref={audioRef}
-              src={student.audio}
-              onTimeUpdate={onTimeUpdate}
-              onLoadedMetadata={onLoaded}
-              onEnded={onEnded}
-              preload="metadata"
-            />
-          )}
-          <button
-            className={`play-btn ${playing ? 'play-btn--pause' : ''}`}
-            onClick={togglePlay}
-            aria-label={playing ? 'Pause' : 'Play'}
-          >
+          <audio
+            ref={audioRef}
+            src={student.audio}
+            onTimeUpdate={onTimeUpdate}
+            onLoadedMetadata={onLoaded}
+            onEnded={onEnded}
+            preload="metadata"
+          />
+          <button className={`play-btn ${playing ? 'play-btn--pause' : ''}`} onClick={togglePlay} aria-label={playing ? 'Pause' : 'Play'}>
             {playing ? <Pause size={18} /> : <Play size={18} />}
           </button>
           <div className="player-track" onClick={seek} role="progressbar">
@@ -183,7 +167,6 @@ const IDMVoices = () => (
         I asked four IDM students the questions nobody thinks to ask. Here's what they had to say.
       </p>
     </div>
-
     <div className="voices-grid">
       {students.map((s) => (
         <VoiceCard key={s.id} student={s} />
