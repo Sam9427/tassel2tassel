@@ -3,6 +3,7 @@ import { Play, Pause, Volume2 } from 'lucide-react';
 import './IDMVoices.css';
 
 // ── Photos (River has no photo yet)
+import riverPhoto from '../../assets/images/idm-voices/river.jpeg';
 import devynnePhoto from '../../assets/images/idm-voices/devynne.jpeg';
 import lamarPhoto from '../../assets/images/idm-voices/lamar.jpeg';
 import yamilaPhoto from '../../assets/images/idm-voices/yamila.jpeg';
@@ -29,8 +30,8 @@ const students = [
     id: 2,
     firstName: 'Devynne',
     lastName: null,
-    pronouns: null,
-    year: null,
+    pronouns: 'she/her',
+    year: 'Senior',
     graduationSemester: 'Spring 2026',
     photo: devynnePhoto,
     audio: devynneAudio,
@@ -41,7 +42,7 @@ const students = [
     firstName: 'Yamila',
     lastName: 'Madrid',
     pronouns: 'she/her',
-    year: null,
+    year: 'Senior',
     graduationSemester: 'Spring 2026',
     photo: yamilaPhoto,
     audio: yamilaAudio,
@@ -50,11 +51,11 @@ const students = [
   {
     id: 4,
     firstName: 'River',
-    lastName: null,
-    pronouns: null,
-    year: null,
-    graduationSemester: null,
-    photo: null,
+    lastName: 'Ramirez',
+    pronouns: 'he/him',
+    year: 'Junior',
+    graduationSemester: 'Spring 2027',
+    photo: riverPhoto,
     audio: riverAudio,
     question: "What's a project you're proud of and what did it really take to finish it?",
   },
