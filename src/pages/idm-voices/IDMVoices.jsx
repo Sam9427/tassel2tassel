@@ -13,7 +13,7 @@ import chelseaPhoto from '../../assets/images/idm-voices/chelsea.jpeg';
 import devynneAudio from '../../assets/audio/idm-voices/devynne.m4a';
 import lamarAudio from '../../assets/audio/idm-voices/lamar.m4a';
 import riverAudio from '../../assets/audio/idm-voices/river.m4a';
-import yamilaAudio from '../../assets/audio/idm-voices/yamila.m4a';
+import yamilaAudio from '../../assets/audio/idm-voices/yamila2.mp4';
 import chelseaAudio from '../../assets/audio/idm-voices/chelsea.m4a';
 
 const students = [
