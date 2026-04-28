@@ -4,9 +4,9 @@ import { Trash2, Lock, Unlock } from 'lucide-react';
 import './Community.css';
 
 const supabase = createClient(
-  'https://rrkuwjoxerkbcdolooku.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJya3V3am94ZXJrYmNkb2xvb2t1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDQwMzMsImV4cCI6MjA5Mjk4MDAzM30.3ctRhlhTIS8uuJdc6__FKK7ky8OLWZzExCuj7YXFIOI'
-);
+    'https://rrkuwjoxerkbcdolooku.supabase.co',
+    'sb_publishable_527RaZ-RRzoqwDYdHOMBiQ_exl6epoc'
+  );
 
 const ADMIN_PASSWORD = 'Sm19144377234.';
 
