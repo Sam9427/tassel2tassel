@@ -73,7 +73,7 @@ const Home = () => {
       tagline: 'The Extended Cut',
       keywords: ['Excitement', 'Fatigue', 'Strength', 'Curiosity', 'Adjustment'],
       color: 'var(--teal-fifth)',
-      path: '/fifth-year'
+      path: '/outta-here'
     },
     {
       name: 'IDM Voices',

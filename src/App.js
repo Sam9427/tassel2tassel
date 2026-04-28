@@ -1,12 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+Copy
+
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './styles/variables.css';
 import './styles/global.css';
-
+ 
 // Components
 import NavBar from './components/navigation/NavBar.jsx';
 import Footer from './components/navigation/Footer.jsx';
-
+ 
 // Pages
 import Home from './pages/Home';
 import FreshmanYear from './pages/freshman/FreshmanYear';
@@ -16,9 +19,20 @@ import SeniorYear from './pages/senior/SeniorYear';
 import OuttaHereYear from './pages/outta-here/OuttaHereYear';
 import Resources from './pages/resources/Resources';
 import IDMVoices from './pages/idm-voices/IDMVoices';
+ 
+// Scrolls to top every time you navigate to a new page
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+ 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <NavBar />
         <Routes>
@@ -36,5 +50,5 @@ function App() {
     </Router>
   );
 }
-
+ 
 export default App;
