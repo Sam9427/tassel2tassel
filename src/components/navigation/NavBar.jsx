@@ -73,6 +73,7 @@ const NavBar = () => {
 
           <Link to="/resources" className="nav-link">Resources</Link>
           <Link to="/idm-voices" className="nav-link">IDM Voices</Link>
+          <Link to="/community" className="nav-link">Community</Link>
         </div>
 
         {/* Search Icon */}

@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './styles/variables.css';
 import './styles/global.css';
- 
+
 // Components
 import NavBar from './components/navigation/NavBar.jsx';
 import Footer from './components/navigation/Footer.jsx';
- 
+
 // Pages
 import Home from './pages/Home';
 import FreshmanYear from './pages/freshman/FreshmanYear';
@@ -16,8 +16,8 @@ import SeniorYear from './pages/senior/SeniorYear';
 import OuttaHereYear from './pages/outta-here/OuttaHereYear';
 import Resources from './pages/resources/Resources';
 import IDMVoices from './pages/idm-voices/IDMVoices';
- 
-// Scrolls to top every time you navigate to a new page
+import Community from './pages/community/Community';
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -25,7 +25,7 @@ const ScrollToTop = () => {
   }, [pathname]);
   return null;
 };
- 
+
 function App() {
   return (
     <Router>
@@ -41,11 +41,12 @@ function App() {
           <Route path="/outta-here" element={<OuttaHereYear />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/idm-voices" element={<IDMVoices />} />
+          <Route path="/community" element={<Community />} />
         </Routes>
         <Footer />
       </div>
     </Router>
   );
 }
- 
+
 export default App;

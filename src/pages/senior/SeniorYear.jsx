@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import RealityCheckModal from '../../components/interactive/RealityCheckModal';
 import './SeniorYear.css';
 
 const SeniorYear = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  
   const realityCheckCards = [
     {
       icon: '🎯',
@@ -31,7 +32,11 @@ const SeniorYear = () => {
 
   const openModal = (card) => { setSelectedCard(card); setIsModalOpen(true); };
   const closeModal = () => { setIsModalOpen(false); setSelectedCard(null); };
-  const scrollToSection = (id) => { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); };
+  const scrollToSection = (id) => {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    setSidebarOpen(false);
+  };
+  
 
   const blueprintBoxStyle = {
     backgroundColor: '#ffffff',
@@ -69,16 +74,19 @@ const SeniorYear = () => {
       </section>
 
       <div className="content-wrapper">
-        <aside className="sidebar-nav">
-          <h3 className="sidebar-title">On This Page</h3>
-          <nav className="sidebar-links">
-            <button onClick={() => scrollToSection('reality-check')} className="sidebar-link">The Reality Check</button>
-            <button onClick={() => scrollToSection('major-battle')} className="sidebar-link">The Fight for My Education</button>
-            <button onClick={() => scrollToSection('how-i-won')} className="sidebar-link">How I Won</button>
-            <button onClick={() => scrollToSection('real-talk')} className="sidebar-link">Real Talk</button>
-            <button onClick={() => scrollToSection('looking-back')} className="sidebar-link">Looking Back</button>
-          </nav>
-        </aside>
+      <aside className="sidebar-nav">
+  <button className="sidebar-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+    <span className="sidebar-title">On This Page</span>
+    {sidebarOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+  </button>
+  <nav className={`sidebar-links ${sidebarOpen ? 'sidebar-links--open' : ''}`}>
+    <button onClick={() => scrollToSection('reality-check')} className="sidebar-link">The Reality Check</button>
+    <button onClick={() => scrollToSection('major-battle')} className="sidebar-link">The Fight for My Education</button>
+    <button onClick={() => scrollToSection('how-i-won')} className="sidebar-link">How I Won</button>
+    <button onClick={() => scrollToSection('real-talk')} className="sidebar-link">Real Talk</button>
+    <button onClick={() => scrollToSection('looking-back')} className="sidebar-link">Looking Back</button>
+  </nav>
+</aside>
 
         <main className="main-content">
 
