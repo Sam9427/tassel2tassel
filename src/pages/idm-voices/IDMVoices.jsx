@@ -7,12 +7,14 @@ import riverPhoto from '../../assets/images/idm-voices/river.jpeg';
 import devynnePhoto from '../../assets/images/idm-voices/devynne.jpeg';
 import lamarPhoto from '../../assets/images/idm-voices/lamar.jpeg';
 import yamilaPhoto from '../../assets/images/idm-voices/yamila.jpeg';
+import chelseaPhoto from '../../assets/images/idm-voices/chelsea.jpeg';
 
 // ── Audio
 import devynneAudio from '../../assets/audio/idm-voices/devynne.m4a';
 import lamarAudio from '../../assets/audio/idm-voices/lamar.m4a';
 import riverAudio from '../../assets/audio/idm-voices/river.m4a';
 import yamilaAudio from '../../assets/audio/idm-voices/yamila.m4a';
+import chelseaAudio from '../../assets/audio/idm-voices/chelsea.m4a';
 
 const students = [
   {
@@ -58,6 +60,17 @@ const students = [
     photo: riverPhoto,
     audio: riverAudio,
     question: "What's a project you're proud of and what did it really take to finish it?",
+  },
+  {
+    id: 5,
+    firstName: 'Chelsea',
+    lastName: 'Berrios',
+    pronouns: 'she/her',
+    year: 'Senior',
+    graduationSemester: 'Spring 2026',
+    photo: chelseaPhoto,
+    audio: chelseaAudio,
+    question: "What's something you've struggled with that people around you might not realize?",
   },
 ];
 
