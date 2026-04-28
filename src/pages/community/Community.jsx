@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { Trash2, Lock, Unlock } from 'lucide-react';
 import './Community.css';
 
 const supabase = createClient(
   'https://rrkuwjoxerkbcdolooku.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJya3V3am94ZXJrYmNkb2xvb2t1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDQwMzMsImV4cCI6MjA5Mjk4MDAzM30.3ctRhlhTIS8uuJdc6__FKK7ky8OLWZzExCuj7YXFIOI'
 );
+
+const ADMIN_PASSWORD = 'Sm19144377234.';
 
 const YEAR_OPTIONS = [
   'Freshman',
@@ -27,6 +30,12 @@ const Community = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
+  // Admin state
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showPasswordPrompt, setShowPasswordPrompt] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
   const fetchPosts = async () => {
     setFetching(true);
     const { data, error } = await supabase
@@ -44,7 +53,7 @@ const Community = () => {
   const handleSubmit = async () => {
     setError('');
     if (!name.trim()) {
-      setError('Please enter your name — it\'s required!');
+      setError("Please enter your name — it's required!");
       return;
     }
     if (!message.trim()) {
@@ -76,6 +85,27 @@ const Community = () => {
     fetchPosts();
   };
 
+  const handleDelete = async (id) => {
+    const { error } = await supabase
+      .from('community_posts')
+      .delete()
+      .eq('id', id);
+    if (!error) {
+      setPosts(posts.filter((p) => p.id !== id));
+    }
+  };
+
+  const handleAdminLogin = () => {
+    if (passwordInput === ADMIN_PASSWORD) {
+      setIsAdmin(true);
+      setShowPasswordPrompt(false);
+      setPasswordInput('');
+      setPasswordError('');
+    } else {
+      setPasswordError('Incorrect password. Try again!');
+    }
+  };
+
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', {
@@ -87,7 +117,6 @@ const Community = () => {
 
   return (
     <div className="community-page">
-      {/* Hero */}
       <div className="community-hero">
         <p className="community-eyebrow">Community Board</p>
         <h1 className="community-headline">Speak On It</h1>
@@ -155,10 +184,52 @@ const Community = () => {
 
         {/* Posts Feed */}
         <div className="posts-feed">
-          <h2 className="feed-heading">
-            What People Are Saying
-            <span className="post-count">{posts.length} posts</span>
-          </h2>
+          <div className="feed-header-row">
+            <h2 className="feed-heading">
+              What People Are Saying
+              <span className="post-count">{posts.length} posts</span>
+            </h2>
+
+            {/* Admin toggle */}
+            <button
+              className="admin-toggle-btn"
+              onClick={() => {
+                if (isAdmin) {
+                  setIsAdmin(false);
+                } else {
+                  setShowPasswordPrompt(!showPasswordPrompt);
+                }
+              }}
+              title={isAdmin ? 'Exit admin mode' : 'Admin login'}
+            >
+              {isAdmin ? <Unlock size={16} /> : <Lock size={16} />}
+              {isAdmin ? 'Exit Admin' : 'Admin'}
+            </button>
+          </div>
+
+          {/* Password prompt */}
+          {showPasswordPrompt && !isAdmin && (
+            <div className="password-prompt">
+              <input
+                className="form-input"
+                type="password"
+                placeholder="Enter admin password"
+                value={passwordInput}
+                onChange={(e) => setPasswordInput(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleAdminLogin()}
+              />
+              {passwordError && <p className="form-error">{passwordError}</p>}
+              <button className="submit-btn" onClick={handleAdminLogin}>
+                Unlock →
+              </button>
+            </div>
+          )}
+
+          {isAdmin && (
+            <div className="admin-banner">
+              🔓 Admin mode on — click the trash icon to delete any post
+            </div>
+          )}
 
           {fetching ? (
             <div className="feed-loading">Loading posts...</div>
@@ -181,6 +252,15 @@ const Community = () => {
                       )}
                     </div>
                     <span className="post-date">{formatDate(post.created_at)}</span>
+                    {isAdmin && (
+                      <button
+                        className="delete-btn"
+                        onClick={() => handleDelete(post.id)}
+                        title="Delete post"
+                      >
+                        <Trash2 size={16} />
+                      </button>
+                    )}
                   </div>
                   <p className="post-message">{post.message}</p>
                 </div>
